@@ -105,7 +105,46 @@ If Apple's page fails to load? NVDA and TSLA still get processed. The error gets
 - Does not trade stocks
 - Does not tell you to buy or sell anything
 - Does not manage a portfolio
-- Does not send messages anywhere (yet)
 - Does not make up reasons for why a stock moved
 
 It's a research assistant, not a trading bot. It watches, summarizes, and remembers.
+
+---
+
+## Telegram Bot Commands
+
+Send these to your StockMonkey bot on Telegram:
+
+| Command | What it does |
+|---|---|
+| `stonks` | Run an immediate stock brief for your full watchlist |
+| `watchlist` | Show current tickers |
+| `add TICKER` | Add a ticker (e.g. `add MSFT`) |
+| `remove TICKER` | Remove a ticker (e.g. `remove COST`) |
+| `help` | Show available commands |
+
+Changes to the watchlist take effect immediately — no restart needed. The watchlist is stored in `data/watchlist.json`.
+
+## Managing the Background Services
+
+Two LaunchAgents run in the background:
+
+**Wake trigger** (runs the morning brief):
+```bash
+# Restart
+launchctl unload ~/Library/LaunchAgents/ai.stockmonkey.wake-trigger.plist
+launchctl load ~/Library/LaunchAgents/ai.stockmonkey.wake-trigger.plist
+
+# Check log
+cat stockmonkey/logs/wake_trigger.log
+```
+
+**Telegram bot** (listens for commands):
+```bash
+# Restart (needed after .env changes, NOT needed after watchlist changes)
+launchctl unload ~/Library/LaunchAgents/ai.stockmonkey.telegram-bot.plist
+launchctl load ~/Library/LaunchAgents/ai.stockmonkey.telegram-bot.plist
+
+# Check log
+cat stockmonkey/logs/telegram_bot.log
+```

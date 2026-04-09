@@ -4,7 +4,7 @@
     "NVDA",
     "TSLA"
   ],
-  "generated_at": "2026-04-09T22:17:42.053190+00:00",
+  "generated_at": "2026-04-09T22:25:02.260127+00:00",
   "results": [
     {
       "ticker": "AAPL",
@@ -21,13 +21,13 @@
           "Vista Investment Partners Just Bought a New $4.7 Million Stake in Federated Hermes",
           "Amazon Stock Jumps on DOJ\u2019s NFL Probe. It\u2019s About \u2018Affordability for Consumers.\u2019"
         ],
-        "timestamp": "2026-04-09T22:17:02.820323+00:00",
+        "timestamp": "2026-04-09T22:24:32.931101+00:00",
         "errors": []
       },
       "llm_summary": {
-        "summary": "AAPL closed at 260.49, up 1.59 points or 0.61% on the day. The headline list appears sparse and mostly not specific to Apple, so there is limited context in this snapshot for what drove the move.",
-        "attention_note": "Watch for Apple-specific headlines or filings next, since the current news list does not clearly explain today\u2019s price change.",
-        "confidence": "low"
+        "summary": "AAPL closed at $260.49, up 1.59 points or 0.61% on the day. The headline list appears sparse and not clearly tied to Apple, so the snapshot mainly shows a modest gain with limited company-specific context.",
+        "attention_note": "Watch for more directly Apple-related news or upcoming market-moving updates, since the provided headlines do not clearly explain today\u2019s move.",
+        "confidence": "medium"
       },
       "previous_snapshot": {
         "ticker": "AAPL",
@@ -42,11 +42,11 @@
           "Vista Investment Partners Just Bought a New $4.7 Million Stake in Federated Hermes",
           "Amazon Stock Jumps on DOJ\u2019s NFL Probe. It\u2019s About \u2018Affordability for Consumers.\u2019"
         ],
-        "timestamp": "2026-04-09T22:10:55.344582+00:00",
+        "timestamp": "2026-04-09T22:17:02.820323+00:00",
         "errors": []
       },
       "comparison": {
-        "previous_timestamp": "2026-04-09T22:10:55.344582+00:00",
+        "previous_timestamp": "2026-04-09T22:17:02.820323+00:00",
         "price_delta": 0.0,
         "price_direction": "flat",
         "headline_count_change": 0,
@@ -66,15 +66,15 @@
           "Amazon CEO's AI chip vision could end up challenging Nvidia",
           "Amazon vs Nvidia? CEO floats future chip business to shareholders",
           "3 charts reveal Big Tech's biggest problem this earnings season",
-          "Dow Jones Futures: Trump Issues Hormuz Threat Before Iran Talks; CPI Inflation, Nvidia Chipmaker Due",
-          "Why Rezolve AI Stock Tanked by Almost 10% Today"
+          "Stock Market Today, April 9: Intel Rises After Expanding Google Cloud AI Partnership for Data Center Push",
+          "Dow Jones Futures: Trump Issues Hormuz Threat Before Iran Talks; CPI Inflation, Nvidia Chipmaker Due"
         ],
-        "timestamp": "2026-04-09T22:17:16.029055+00:00",
+        "timestamp": "2026-04-09T22:24:42.795242+00:00",
         "errors": []
       },
       "llm_summary": {
-        "summary": "NVDA closed at $183.91, up $1.83 or 1.01% on the day. The headline mix is mostly focused on AI chip competition and broader Big Tech and macro themes, with no clear company-specific result in the snapshot.",
-        "attention_note": "Watch for the next company-specific update or earnings-related headline, since the current news mix is broad and not clearly tied to today's move.",
+        "summary": "NVDA closed at $183.91, up 1.83 points or 1.01% for the session. The headline mix is focused on AI chip competition, broader Big Tech earnings pressures, and upcoming market catalysts, but the snapshot does not show a direct company-specific driver for today\u2019s move.",
+        "attention_note": "Watch for any clearer NVDA-specific updates and how broader AI chip competition and macro headlines develop in the next session.",
         "confidence": "medium"
       },
       "previous_snapshot": {
@@ -87,19 +87,19 @@
           "Amazon CEO's AI chip vision could end up challenging Nvidia",
           "Amazon vs Nvidia? CEO floats future chip business to shareholders",
           "3 charts reveal Big Tech's biggest problem this earnings season",
-          "Why Rezolve AI Stock Tanked by Almost 10% Today",
-          "Dow Jones Futures: Trump Issues Hormuz Threat Before Iran Talks; CPI Inflation, Nvidia Chipmaker Due"
+          "Dow Jones Futures: Trump Issues Hormuz Threat Before Iran Talks; CPI Inflation, Nvidia Chipmaker Due",
+          "Why Rezolve AI Stock Tanked by Almost 10% Today"
         ],
-        "timestamp": "2026-04-09T22:11:07.675950+00:00",
+        "timestamp": "2026-04-09T22:17:16.029055+00:00",
         "errors": []
       },
       "comparison": {
-        "previous_timestamp": "2026-04-09T22:11:07.675950+00:00",
+        "previous_timestamp": "2026-04-09T22:17:16.029055+00:00",
         "price_delta": 0.0,
         "price_direction": "flat",
         "headline_count_change": 0,
-        "new_headlines_detected": false,
-        "comparison_note": "Price moved flat by $0.00 since the last snapshot."
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved flat by $0.00 since the last snapshot. 1 new headline(s) detected."
       }
     },
     {
@@ -117,12 +117,12 @@
           "Intel Stock Notches Gains for 7th-Straight Day. Why It Hit a Nearly 5-Year High Today.",
           "Tesla Stock Falls. Why the Market Doesn\u2019t Care About New Car Report."
         ],
-        "timestamp": "2026-04-09T22:17:24.451489+00:00",
+        "timestamp": "2026-04-09T22:24:50.973221+00:00",
         "errors": []
       },
       "llm_summary": {
-        "summary": "TSLA closed at $345.62, up $2.37 or 0.69% on the day. The headline mix is mixed, with Tesla-specific items focused on Elon Musk and a note about the stock falling, while some other headlines are broader auto or market coverage rather than direct TSLA updates.",
-        "attention_note": "Watch for clearer Tesla-specific news or company data, since the current headline set is mixed and not tightly tied to the stock\u2019s modest move.",
+        "summary": "TSLA closed at $345.62, up $2.37 or 0.69% for the session. The headline mix mentions Tesla, broader auto and market commentary, and CEO-related coverage, but it does not provide a clear single driver for the move from this snapshot alone.",
+        "attention_note": "Watch for more specific Tesla updates or market-moving news, since the current headlines are mixed and do not clearly explain the day's price change.",
         "confidence": "medium"
       },
       "previous_snapshot": {
@@ -138,11 +138,11 @@
           "Intel Stock Notches Gains for 7th-Straight Day. Why It Hit a Nearly 5-Year High Today.",
           "Tesla Stock Falls. Why the Market Doesn\u2019t Care About New Car Report."
         ],
-        "timestamp": "2026-04-09T22:11:16.307246+00:00",
+        "timestamp": "2026-04-09T22:17:24.451489+00:00",
         "errors": []
       },
       "comparison": {
-        "previous_timestamp": "2026-04-09T22:11:16.307246+00:00",
+        "previous_timestamp": "2026-04-09T22:17:24.451489+00:00",
         "price_delta": 0.0,
         "price_direction": "flat",
         "headline_count_change": 0,
@@ -152,7 +152,7 @@
     }
   ],
   "digest_summary": {
-    "overall_summary": "At the close, AAPL finished at $260.49, up 0.61%; NVDA closed at $183.91, up 1.01%; and TSLA ended at $345.62, up 0.69%. All three entries say prices were flat versus the last snapshot. Each has 5 headlines, but confidence is low for AAPL and medium for NVDA and TSLA, so treat this as a limited snapshot rather than a detailed read on the day.",
+    "overall_summary": "At the close, AAPL finished at 260.49, up 0.61%; NVDA at 183.91, up 1.01%; and TSLA at 345.62, up 0.69%. All three snapshots say prices were flat versus the last check, suggesting no change between snapshots. Each ticker has 5 headlines, and NVDA shows 1 new headline detected. Overall data quality looks medium-confidence and limited in detail.",
     "top_movers": [
       {
         "ticker": "NVDA",
@@ -170,9 +170,11 @@
         "price": 260.49
       }
     ],
-    "tickers_with_new_headlines": [],
+    "tickers_with_new_headlines": [
+      "NVDA"
+    ],
     "tickers_needing_attention": [
-      "AAPL"
+      "NVDA"
     ]
   }
 }

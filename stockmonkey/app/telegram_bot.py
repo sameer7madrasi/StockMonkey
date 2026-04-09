@@ -1,4 +1,4 @@
-"""Telegram bot listener: responds to 'stonks' with an on-demand daily brief.
+"""Telegram bot listener for StockMonkey.
 
 Runs as a long-polling loop. Designed to be started as a background process
 via LaunchAgent or manually:
@@ -6,7 +6,11 @@ via LaunchAgent or manually:
     cd stockmonkey
     python -m app.telegram_bot
 
-Send 'stonks' to the bot on Telegram to trigger an immediate update.
+Commands (send via Telegram):
+    stonks          — run an immediate stock brief
+    watchlist       — show current tickers
+    add MSFT        — add a ticker to the watchlist
+    remove COST     — remove a ticker from the watchlist
 """
 from __future__ import annotations
 
@@ -25,8 +29,7 @@ load_dotenv()
 
 _BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 _CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
-_TRIGGER_WORD = "stonks"
-_POLL_TIMEOUT = 30  # seconds to hold the long-poll connection
+_POLL_TIMEOUT = 30
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
 _LOG_FILE = _PROJECT_ROOT / "logs" / "telegram_bot.log"
@@ -64,18 +67,19 @@ def _send(text: str, parse_mode: str = "Markdown") -> None:
     })
 
 
+# ── command handlers ─────────────────────────────────────────────────
+
 def _handle_stonks() -> None:
     """Run the pipeline and send the result to Telegram."""
     _send("Running your stock brief now...")
 
-    # Import here to avoid circular imports and heavy init at startup
     from app.run_watchlist import run_watchlist
     from app.watchlist import load_tickers
     from app.format_digest import format_digest_markdown
 
     tickers = load_tickers()
     if not tickers:
-        _send("No tickers configured. Set DEFAULT\\_TICKERS in .env.")
+        _send("Watchlist is empty. Add tickers with `add TICKER`.")
         return
 
     try:
@@ -87,7 +91,6 @@ def _handle_stonks() -> None:
     md_text = format_digest_markdown(digest)
     _send(md_text)
 
-    # Save artifacts too
     digest_dir = _PROJECT_ROOT / "data" / "digests"
     digest_dir.mkdir(parents=True, exist_ok=True)
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -99,13 +102,74 @@ def _handle_stonks() -> None:
     )
 
 
+def _handle_watchlist() -> None:
+    from app.watchlist import load_tickers
+    tickers = load_tickers()
+    if tickers:
+        listing = "\n".join(f"• {t}" for t in tickers)
+        _send(f"*Current watchlist:*\n{listing}")
+    else:
+        _send("Watchlist is empty. Add tickers with `add TICKER`.")
+
+
+def _handle_add(ticker: str) -> None:
+    from app.watchlist import add_ticker
+    added, current = add_ticker(ticker)
+    if added:
+        listing = ", ".join(current)
+        _send(f"Added *{ticker.upper()}*.\nWatchlist: {listing}")
+    else:
+        _send(f"*{ticker.upper()}* is already on the watchlist.")
+
+
+def _handle_remove(ticker: str) -> None:
+    from app.watchlist import remove_ticker
+    removed, current = remove_ticker(ticker)
+    if removed:
+        listing = ", ".join(current) if current else "(empty)"
+        _send(f"Removed *{ticker.upper()}*.\nWatchlist: {listing}")
+    else:
+        _send(f"*{ticker.upper()}* is not on the watchlist.")
+
+
+def _handle_help() -> None:
+    _send(
+        "*StockMonkey commands:*\n"
+        "• `stonks` — get an immediate stock brief\n"
+        "• `watchlist` — show current tickers\n"
+        "• `add TICKER` — add a ticker\n"
+        "• `remove TICKER` — remove a ticker\n"
+        "• `help` — show this message"
+    )
+
+
+# ── polling loop ─────────────────────────────────────────────────────
+
+def _dispatch(text: str) -> None:
+    """Route an incoming message to the right handler."""
+    parts = text.strip().split(maxsplit=1)
+    cmd = parts[0].lower()
+    arg = parts[1].strip().upper() if len(parts) > 1 else ""
+
+    if "stonks" in cmd:
+        _handle_stonks()
+    elif cmd == "watchlist":
+        _handle_watchlist()
+    elif cmd == "add" and arg:
+        _handle_add(arg)
+    elif cmd == "remove" and arg:
+        _handle_remove(arg)
+    elif cmd == "help":
+        _handle_help()
+
+
 def poll() -> None:
-    """Long-poll loop: listen for messages and respond to the trigger word."""
+    """Long-poll loop: listen for messages and dispatch commands."""
     if not _BOT_TOKEN or not _CHAT_ID:
         _log("TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not set. Exiting.")
         sys.exit(1)
 
-    _log(f"Bot started. Listening for '{_TRIGGER_WORD}' from chat {_CHAT_ID}")
+    _log("Bot started. Listening for commands.")
 
     offset = 0
     while True:
@@ -119,19 +183,20 @@ def poll() -> None:
                 offset = update["update_id"] + 1
                 msg = update.get("message", {})
                 chat_id = str(msg.get("chat", {}).get("id", ""))
-                text = (msg.get("text") or "").strip().lower()
+                text = (msg.get("text") or "").strip()
 
                 if chat_id != str(_CHAT_ID):
                     continue
 
-                if _TRIGGER_WORD in text:
-                    _log(f"Trigger received: '{msg.get('text')}'")
-                    try:
-                        _handle_stonks()
-                        _log("Brief sent successfully")
-                    except Exception as exc:
-                        _log(f"Brief failed: {exc}")
-                        _send(f"Something went wrong: `{exc}`")
+                if not text:
+                    continue
+
+                _log(f"Message: '{text}'")
+                try:
+                    _dispatch(text)
+                except Exception as exc:
+                    _log(f"Command failed: {exc}")
+                    _send(f"Something went wrong: `{exc}`")
 
         except (urllib.error.URLError, TimeoutError):
             time.sleep(5)

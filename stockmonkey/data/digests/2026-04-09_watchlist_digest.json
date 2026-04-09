@@ -1,0 +1,178 @@
+{
+  "watchlist": [
+    "AAPL",
+    "NVDA",
+    "TSLA"
+  ],
+  "generated_at": "2026-04-09T22:17:42.053190+00:00",
+  "results": [
+    {
+      "ticker": "AAPL",
+      "snapshot": {
+        "ticker": "AAPL",
+        "price": 260.49,
+        "change": 1.59,
+        "percent_change": 0.61,
+        "market_status": "At close: 4:00:02 PM EDT",
+        "headlines": [
+          "AI is supercharging the cybersecurity fight",
+          "Microsoft\u2019s New AI Alliances Reframe Its Role In Patents And Security",
+          "Broadcom vs. Qualcomm: Buy One, Avoid the Other",
+          "Vista Investment Partners Just Bought a New $4.7 Million Stake in Federated Hermes",
+          "Amazon Stock Jumps on DOJ\u2019s NFL Probe. It\u2019s About \u2018Affordability for Consumers.\u2019"
+        ],
+        "timestamp": "2026-04-09T22:17:02.820323+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "AAPL closed at 260.49, up 1.59 points or 0.61% on the day. The headline list appears sparse and mostly not specific to Apple, so there is limited context in this snapshot for what drove the move.",
+        "attention_note": "Watch for Apple-specific headlines or filings next, since the current news list does not clearly explain today\u2019s price change.",
+        "confidence": "low"
+      },
+      "previous_snapshot": {
+        "ticker": "AAPL",
+        "price": 260.49,
+        "change": 1.59,
+        "percent_change": 0.61,
+        "market_status": "At close: 4:00:02 PM EDT",
+        "headlines": [
+          "AI is supercharging the cybersecurity fight",
+          "Microsoft\u2019s New AI Alliances Reframe Its Role In Patents And Security",
+          "Broadcom vs. Qualcomm: Buy One, Avoid the Other",
+          "Vista Investment Partners Just Bought a New $4.7 Million Stake in Federated Hermes",
+          "Amazon Stock Jumps on DOJ\u2019s NFL Probe. It\u2019s About \u2018Affordability for Consumers.\u2019"
+        ],
+        "timestamp": "2026-04-09T22:10:55.344582+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-09T22:10:55.344582+00:00",
+        "price_delta": 0.0,
+        "price_direction": "flat",
+        "headline_count_change": 0,
+        "new_headlines_detected": false,
+        "comparison_note": "Price moved flat by $0.00 since the last snapshot."
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "snapshot": {
+        "ticker": "NVDA",
+        "price": 183.91,
+        "change": 1.83,
+        "percent_change": 1.01,
+        "market_status": "At close: 4:00:01 PM EDT",
+        "headlines": [
+          "Amazon CEO's AI chip vision could end up challenging Nvidia",
+          "Amazon vs Nvidia? CEO floats future chip business to shareholders",
+          "3 charts reveal Big Tech's biggest problem this earnings season",
+          "Dow Jones Futures: Trump Issues Hormuz Threat Before Iran Talks; CPI Inflation, Nvidia Chipmaker Due",
+          "Why Rezolve AI Stock Tanked by Almost 10% Today"
+        ],
+        "timestamp": "2026-04-09T22:17:16.029055+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "NVDA closed at $183.91, up $1.83 or 1.01% on the day. The headline mix is mostly focused on AI chip competition and broader Big Tech and macro themes, with no clear company-specific result in the snapshot.",
+        "attention_note": "Watch for the next company-specific update or earnings-related headline, since the current news mix is broad and not clearly tied to today's move.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "NVDA",
+        "price": 183.91,
+        "change": 1.83,
+        "percent_change": 1.01,
+        "market_status": "At close: 4:00:01 PM EDT",
+        "headlines": [
+          "Amazon CEO's AI chip vision could end up challenging Nvidia",
+          "Amazon vs Nvidia? CEO floats future chip business to shareholders",
+          "3 charts reveal Big Tech's biggest problem this earnings season",
+          "Why Rezolve AI Stock Tanked by Almost 10% Today",
+          "Dow Jones Futures: Trump Issues Hormuz Threat Before Iran Talks; CPI Inflation, Nvidia Chipmaker Due"
+        ],
+        "timestamp": "2026-04-09T22:11:07.675950+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-09T22:11:07.675950+00:00",
+        "price_delta": 0.0,
+        "price_direction": "flat",
+        "headline_count_change": 0,
+        "new_headlines_detected": false,
+        "comparison_note": "Price moved flat by $0.00 since the last snapshot."
+      }
+    },
+    {
+      "ticker": "TSLA",
+      "snapshot": {
+        "ticker": "TSLA",
+        "price": 345.62,
+        "change": 2.37,
+        "percent_change": 0.69,
+        "market_status": "At close: 4:00:01 PM EDT",
+        "headlines": [
+          "From flying cars to self-driving cars: CEOs weigh in",
+          "Tesla CEO Elon Musk's secret business weapon: Think about existential threats",
+          "Stock Market Today, Apr. 9: Nio Erases Early Gains Following New Electric SUV Launch",
+          "Intel Stock Notches Gains for 7th-Straight Day. Why It Hit a Nearly 5-Year High Today.",
+          "Tesla Stock Falls. Why the Market Doesn\u2019t Care About New Car Report."
+        ],
+        "timestamp": "2026-04-09T22:17:24.451489+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "TSLA closed at $345.62, up $2.37 or 0.69% on the day. The headline mix is mixed, with Tesla-specific items focused on Elon Musk and a note about the stock falling, while some other headlines are broader auto or market coverage rather than direct TSLA updates.",
+        "attention_note": "Watch for clearer Tesla-specific news or company data, since the current headline set is mixed and not tightly tied to the stock\u2019s modest move.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "TSLA",
+        "price": 345.62,
+        "change": 2.37,
+        "percent_change": 0.69,
+        "market_status": "At close: 4:00:01 PM EDT",
+        "headlines": [
+          "From flying cars to self-driving cars: CEOs weigh in",
+          "Tesla CEO Elon Musk's secret business weapon: Think about existential threats",
+          "Stock Market Today, Apr. 9: Nio Erases Early Gains Following New Electric SUV Launch",
+          "Intel Stock Notches Gains for 7th-Straight Day. Why It Hit a Nearly 5-Year High Today.",
+          "Tesla Stock Falls. Why the Market Doesn\u2019t Care About New Car Report."
+        ],
+        "timestamp": "2026-04-09T22:11:16.307246+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-09T22:11:16.307246+00:00",
+        "price_delta": 0.0,
+        "price_direction": "flat",
+        "headline_count_change": 0,
+        "new_headlines_detected": false,
+        "comparison_note": "Price moved flat by $0.00 since the last snapshot."
+      }
+    }
+  ],
+  "digest_summary": {
+    "overall_summary": "At the close, AAPL finished at $260.49, up 0.61%; NVDA closed at $183.91, up 1.01%; and TSLA ended at $345.62, up 0.69%. All three entries say prices were flat versus the last snapshot. Each has 5 headlines, but confidence is low for AAPL and medium for NVDA and TSLA, so treat this as a limited snapshot rather than a detailed read on the day.",
+    "top_movers": [
+      {
+        "ticker": "NVDA",
+        "percent_change": 1.01,
+        "price": 183.91
+      },
+      {
+        "ticker": "TSLA",
+        "percent_change": 0.69,
+        "price": 345.62
+      },
+      {
+        "ticker": "AAPL",
+        "percent_change": 0.61,
+        "price": 260.49
+      }
+    ],
+    "tickers_with_new_headlines": [],
+    "tickers_needing_attention": [
+      "AAPL"
+    ]
+  }
+}

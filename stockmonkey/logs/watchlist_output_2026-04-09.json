@@ -1,0 +1,176 @@
+{
+    "watchlist": [
+        "AAPL",
+        "NVDA",
+        "TSLA"
+    ],
+    "generated_at": "2026-04-09T21:13:05.385037+00:00",
+    "results": [
+        {
+            "ticker": "AAPL",
+            "snapshot": {
+                "ticker": "AAPL",
+                "price": 260.49,
+                "change": 1.59,
+                "percent_change": 0.61,
+                "market_status": "At close: 4:00:02 PM EDT",
+                "headlines": [
+                    "AI is supercharging the cybersecurity fight",
+                    "Microsoft\u2019s New AI Alliances Reframe Its Role In Patents And Security",
+                    "Broadcom vs. Qualcomm: Buy One, Avoid the Other",
+                    "Vista Investment Partners Just Bought a New $4.7 Million Stake in Federated Hermes",
+                    "Amazon Stock Jumps on DOJ\u2019s NFL Probe. It\u2019s About \u2018Affordability for Consumers.\u2019"
+                ],
+                "timestamp": "2026-04-09T21:12:34.806447+00:00",
+                "errors": []
+            },
+            "llm_summary": {
+                "summary": "AAPL closed at $260.49, up 1.59 points or 0.61% on the day. The provided headlines do not appear to be directly about Apple, so the snapshot offers limited context for the move.",
+                "attention_note": "Watch for Apple-specific news and the next trading session to see whether this modest gain gets follow-through.",
+                "confidence": "medium"
+            },
+            "previous_snapshot": {
+                "ticker": "AAPL",
+                "price": 260.49,
+                "change": 1.59,
+                "percent_change": 0.61,
+                "market_status": "At close: 4:00:02 PM EDT",
+                "headlines": [
+                    "AI is supercharging the cybersecurity fight",
+                    "Microsoft\u2019s New AI Alliances Reframe Its Role In Patents And Security",
+                    "Broadcom vs. Qualcomm: Buy One, Avoid the Other",
+                    "Vista Investment Partners Just Bought a New $4.7 Million Stake in Federated Hermes",
+                    "Amazon Stock Jumps on DOJ\u2019s NFL Probe. It\u2019s About \u2018Affordability for Consumers.\u2019"
+                ],
+                "timestamp": "2026-04-09T21:11:28.857583+00:00",
+                "errors": []
+            },
+            "comparison": {
+                "previous_timestamp": "2026-04-09T21:11:28.857583+00:00",
+                "price_delta": 0.0,
+                "price_direction": "flat",
+                "headline_count_change": 0,
+                "new_headlines_detected": false,
+                "comparison_note": "Price moved flat by $0.00 since the last snapshot."
+            }
+        },
+        {
+            "ticker": "NVDA",
+            "snapshot": {
+                "ticker": "NVDA",
+                "price": 183.91,
+                "change": 1.83,
+                "percent_change": 1.01,
+                "market_status": "At close: 4:00:01 PM EDT",
+                "headlines": [
+                    "Amazon CEO's AI chip vision could end up challenging Nvidia",
+                    "Amazon vs Nvidia? CEO floats future chip business to shareholders",
+                    "3 charts reveal Big Tech's biggest problem this earnings season",
+                    "Why Argan Stock Crushed it on Thursday",
+                    "XRP Has Outperformed Bitcoin Over the Past 5 Years -- Here's Why That's Surprising"
+                ],
+                "timestamp": "2026-04-09T21:12:44.580820+00:00",
+                "errors": []
+            },
+            "llm_summary": {
+                "summary": "NVDA closed at $183.91, up $1.83 or 1.01% on the day. The available headlines are mixed and mostly broad, with two items pointing to potential future chip competition involving Amazon and Nvidia, while the rest are not clearly tied to NVDA\u2019s trading move.",
+                "attention_note": "Watch for any more specific updates on Amazon\u2019s chip plans and any NVDA-related news, since the current headline set is limited and not tightly connected to today\u2019s price change.",
+                "confidence": "medium"
+            },
+            "previous_snapshot": {
+                "ticker": "NVDA",
+                "price": 183.91,
+                "change": 1.83,
+                "percent_change": 1.01,
+                "market_status": "At close: 4:00:01 PM EDT",
+                "headlines": [
+                    "Amazon CEO's AI chip vision could end up challenging Nvidia",
+                    "Amazon vs Nvidia? CEO floats future chip business to shareholders",
+                    "3 charts reveal Big Tech's biggest problem this earnings season",
+                    "Why Argan Stock Crushed it on Thursday",
+                    "XRP Has Outperformed Bitcoin Over the Past 5 Years -- Here's Why That's Surprising"
+                ],
+                "timestamp": "2026-04-09T21:11:41.848572+00:00",
+                "errors": []
+            },
+            "comparison": {
+                "previous_timestamp": "2026-04-09T21:11:41.848572+00:00",
+                "price_delta": 0.0,
+                "price_direction": "flat",
+                "headline_count_change": 0,
+                "new_headlines_detected": false,
+                "comparison_note": "Price moved flat by $0.00 since the last snapshot."
+            }
+        },
+        {
+            "ticker": "TSLA",
+            "snapshot": {
+                "ticker": "TSLA",
+                "price": 345.62,
+                "change": 2.37,
+                "percent_change": 0.69,
+                "market_status": "At close: 4:00:01 PM EDT",
+                "headlines": [
+                    "From flying cars to self-driving cars: CEOs weigh in",
+                    "Tesla CEO Elon Musk's secret business weapon: Think about existential threats",
+                    "Tesla Changing Course? Reportedly Working On Cheap Compact SUV",
+                    "Nvidia And Tesla Grab Headlines, But This Stock Is Grabbing Gains",
+                    "Tesla's China Sales Slump As Stock Nears Two-Month Losing Streak"
+                ],
+                "timestamp": "2026-04-09T21:12:53.185587+00:00",
+                "errors": []
+            },
+            "llm_summary": {
+                "summary": "TSLA closed at $345.62, up $2.37 or 0.69% on the day. The headline mix is mixed, with attention on Tesla strategy, a reported compact SUV project, and a headline about China sales slumping, while the stock still finished modestly higher.",
+                "attention_note": "Watch whether upcoming company updates or sales-related news add clarity, since the headlines point in different directions.",
+                "confidence": "medium"
+            },
+            "previous_snapshot": {
+                "ticker": "TSLA",
+                "price": 345.62,
+                "change": 2.37,
+                "percent_change": 0.69,
+                "market_status": "At close: 4:00:01 PM EDT",
+                "headlines": [
+                    "From flying cars to self-driving cars: CEOs weigh in",
+                    "Tesla CEO Elon Musk's secret business weapon: Think about existential threats",
+                    "Tesla Changing Course? Reportedly Working On Cheap Compact SUV",
+                    "Nvidia And Tesla Grab Headlines, But This Stock Is Grabbing Gains",
+                    "Tesla's China Sales Slump As Stock Nears Two-Month Losing Streak"
+                ],
+                "timestamp": "2026-04-09T21:11:50.115481+00:00",
+                "errors": []
+            },
+            "comparison": {
+                "previous_timestamp": "2026-04-09T21:11:50.115481+00:00",
+                "price_delta": 0.0,
+                "price_direction": "flat",
+                "headline_count_change": 0,
+                "new_headlines_detected": false,
+                "comparison_note": "Price moved flat by $0.00 since the last snapshot."
+            }
+        }
+    ],
+    "digest_summary": {
+        "overall_summary": "At the close, AAPL finished at $260.49 (+0.61%), NVDA at $183.91 (+1.01%), and TSLA at $345.62 (+0.69%). All three showed modest gains. Each entry has 5 headlines and medium confidence, and each comparison note says the price was flat versus the last snapshot, so the data looks limited and not very dynamic.",
+        "top_movers": [
+            {
+                "ticker": "NVDA",
+                "percent_change": 1.01,
+                "price": 183.91
+            },
+            {
+                "ticker": "TSLA",
+                "percent_change": 0.69,
+                "price": 345.62
+            },
+            {
+                "ticker": "AAPL",
+                "percent_change": 0.61,
+                "price": 260.49
+            }
+        ],
+        "tickers_with_new_headlines": [],
+        "tickers_needing_attention": []
+    }
+}

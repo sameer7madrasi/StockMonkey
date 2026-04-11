@@ -1,16 +1,13 @@
 """OpenClaw skill entry point: generate and save a daily stock brief.
 
-Usage:
+Usage (invoked by OpenClaw agent or manually):
     cd stockmonkey
+    source .venv/bin/activate
     python openclaw/skills/stock_daily_brief/run_stock_daily_brief.py
     python openclaw/skills/stock_daily_brief/run_stock_daily_brief.py AAPL NVDA TSLA
 
-Scheduling (OpenClaw Cron):
-    openclaw cron add \
-      --name "daily-stock-brief" \
-      --cron "0 7 * * 1-5" \
-      --tz "America/Los_Angeles" \
-      --message "python openclaw/skills/stock_daily_brief/run_stock_daily_brief.py"
+Output goes to stdout (Markdown digest) and saved to data/digests/.
+The OpenClaw agent handles delivery to Telegram via its native channel.
 """
 from __future__ import annotations
 
@@ -28,7 +25,6 @@ if str(_PROJECT_ROOT) not in sys.path:
 from app.run_watchlist import run_watchlist  # noqa: E402
 from app.watchlist import load_tickers       # noqa: E402
 from app.format_digest import format_digest_markdown  # noqa: E402
-from app.notify import send_brief            # noqa: E402
 
 _DIGEST_DIR = _PROJECT_ROOT / "data" / "digests"
 
@@ -75,26 +71,10 @@ def run_daily_brief(tickers: list[str] | None = None) -> str:
     json_path, md_path = _save_artifacts(digest, date_str)
 
     md_text = format_digest_markdown(digest)
-    sent = send_brief(digest, md_text)
 
-    ds = digest.get("digest_summary", {})
-    movers = ds.get("top_movers", [])
-    attn = ds.get("tickers_needing_attention", [])
-
-    summary_parts = [
-        f"Daily Stock Brief — {date_str}",
-        f"Watchlist: {', '.join(resolved_tickers)}",
-        f"Top mover: {movers[0]['ticker']} ({movers[0]['percent_change']}%)" if movers else "No movers data",
-        f"Attention: {', '.join(attn)}" if attn else "No tickers flagged",
-        f"Telegram: {'sent' if sent else 'not sent'}",
-        f"Artifacts saved:",
-        f"  JSON: {json_path}",
-        f"  MD:   {md_path}",
-    ]
-
-    output = "\n".join(summary_parts)
-    print(output)
-    return output
+    print(md_text)
+    print(f"\n---\nArtifacts saved:\n  JSON: {json_path}\n  MD:   {md_path}")
+    return md_text
 
 
 def main() -> None:

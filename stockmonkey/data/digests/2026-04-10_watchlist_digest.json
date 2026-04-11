@@ -1,0 +1,235 @@
+{
+  "watchlist": [
+    "COST",
+    "RACE",
+    "VWAGY",
+    "AAPL"
+  ],
+  "generated_at": "2026-04-10T13:33:52.330007+00:00",
+  "results": [
+    {
+      "ticker": "COST",
+      "snapshot": {
+        "ticker": "COST",
+        "price": 1022.26,
+        "change": -9.77,
+        "percent_change": -0.95,
+        "market_status": "As of 9:33:09 AM EDT. Market Open.",
+        "headlines": [
+          "1 Reason to Buy and Hold Costco Stock for the Next 10 Years",
+          "Costco Gold Bars Spark Viral Buzz And Raise Valuation Questions",
+          "Jim Cramer Highlights Two Catalysts for Costco",
+          "Costco and Walmart Deserve Their Rich Valuations, This Analyst Says",
+          "Costco's US Comparable Sales Demonstrate 'Strong and Steady' Results, UBS Says"
+        ],
+        "timestamp": "2026-04-10T13:33:08.911553+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "COST was down 0.95% to $1,022.26 in early trading as of 9:33 AM EDT. The snapshot\u2019s headlines are generally focused on valuation, sales strength, and longer-term company outlook rather than a clear new market-moving update today.",
+        "attention_note": "Watch whether fresh company-specific news or broader retail-market moves emerge after the open, since the current headlines are more thematic than time-specific.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "COST",
+        "price": 1032.03,
+        "change": 1.76,
+        "percent_change": 0.17,
+        "market_status": "At close: 4:00:00 PM EDT",
+        "headlines": [
+          "Costco and Walmart Deserve Their Rich Valuations, This Analyst Says",
+          "Costco's US Comparable Sales Demonstrate 'Strong and Steady' Results, UBS Says",
+          "Costco sales surge in March",
+          "FlyHouse Appoints Brian P. Reid as Chief Revenue Officer",
+          "Jim Cramer Mentions Big Costco (COST) Initiative"
+        ],
+        "timestamp": "2026-04-09T22:31:31.318920+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-09T22:31:31.318920+00:00",
+        "price_delta": -9.77,
+        "price_direction": "down",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved down by $9.77 since the last snapshot. 3 new headline(s) detected."
+      }
+    },
+    {
+      "ticker": "RACE",
+      "snapshot": {
+        "ticker": "RACE",
+        "price": 355.29,
+        "change": 3.21,
+        "percent_change": 0.91,
+        "market_status": "As of 9:33:19 AM EDT. Market Open.",
+        "headlines": [
+          "Ferrari (RACE): Best Growth Stocks to Buy for the Next Decade",
+          "Update: Market Chatter: Stellantis, Ferrari Chairman John Elkann's Bid to Exclude Mother From Estate Rejected by Swiss Court",
+          "STRT or RACE: Which Is the Better Value Stock Right Now?",
+          "FERRARI N.V.: PERIODIC REPORT ON THE BUYBACK PROGRAM",
+          "Ferrari (NYSE:RACE) Valuation Check After Recent Pullback And Conflicting Fair Value Signals"
+        ],
+        "timestamp": "2026-04-10T13:33:19.570961+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "RACE was up 0.91% to 355.29 in early trading as of 9:33 AM EDT. The snapshot\u2019s headlines are mixed, focusing on valuation comparisons, a buyback program update, and a legal headline involving the chairman, so there is no single clear driver shown here.",
+        "attention_note": "Watch for any fuller company update tied to the buyback program or follow-through market reaction as trading develops.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "RACE",
+        "price": 352.22,
+        "change": 0.92,
+        "percent_change": 0.26,
+        "market_status": "At close: 4:00:02 PM EDT",
+        "headlines": [
+          "Update: Market Chatter: Stellantis, Ferrari Chairman John Elkann's Bid to Exclude Mother From Estate Rejected by Swiss Court",
+          "STRT or RACE: Which Is the Better Value Stock Right Now?",
+          "FERRARI N.V.: PERIODIC REPORT ON THE BUYBACK PROGRAM",
+          "Ferrari (NYSE:RACE) Valuation Check After Recent Pullback And Conflicting Fair Value Signals",
+          "OpenAI IPO scrutiny builds after acquiring tech podcast TBPN"
+        ],
+        "timestamp": "2026-04-09T22:31:41.268362+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-09T22:31:41.268362+00:00",
+        "price_delta": 3.07,
+        "price_direction": "up",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved up by $3.07 since the last snapshot. 1 new headline(s) detected."
+      }
+    },
+    {
+      "ticker": "VWAGY",
+      "snapshot": {
+        "ticker": "VWAGY",
+        "price": 10.73,
+        "change": 0.5,
+        "percent_change": 4.89,
+        "market_status": "As of 8:57:51 AM EDT. Market Open.",
+        "headlines": [
+          "Is Volkswagen (XTRA:VOW3) A Value Opportunity After Recent Share Price Weakness?",
+          "Volkswagen to end ID.4 EV production at Tennessee plant",
+          "PLTR, RIVN Gain Favor As INTC Momentum Fades",
+          "Volkswagen drops all-electric ID.4 in the US in pivot back to gas SUVs",
+          "Price Prediction: Rivian Stock Eyes Comeback After 2026 Slump"
+        ],
+        "timestamp": "2026-04-10T13:33:29.406215+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "VWAGY was up 4.89% to 10.73 in early trading as of 8:57:51 AM EDT. The snapshot headlines are mixed: two items point to Volkswagen ending or dropping the ID.4 in the US, while other listed headlines appear only loosely related, so the news picture here is not fully clean.",
+        "attention_note": "Watch whether more company-specific updates clarify the US EV production and product changes, since the headline mix adds uncertainty to today\u2019s move.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "VWAGY",
+        "price": 10.72,
+        "change": 0.49,
+        "percent_change": 4.79,
+        "market_status": "At close: 3:50:07 PM EDT",
+        "headlines": [
+          "PLTR, RIVN Gain Favor As INTC Momentum Fades",
+          "Volkswagen drops all-electric ID.4 in the US in pivot back to gas SUVs",
+          "Price Prediction: Rivian Stock Eyes Comeback After 2026 Slump",
+          "Volkswagen axes production of electric vehicles at Chattanooga plant",
+          "Volkswagen to End U.S. Production of Its Only American-Made EV"
+        ],
+        "timestamp": "2026-04-09T22:31:49.840362+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-09T22:31:49.840362+00:00",
+        "price_delta": 0.01,
+        "price_direction": "up",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved up by $0.01 since the last snapshot. 2 new headline(s) detected."
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "snapshot": {
+        "ticker": "AAPL",
+        "price": 259.52,
+        "change": -0.97,
+        "percent_change": -0.37,
+        "market_status": "As of 9:33:46 AM EDT. Market Open.",
+        "headlines": [
+          "AI is supercharging the cybersecurity fight",
+          "Stock Market Today: Dow Wavers On Surprise CPI Inflation Data; Nvidia Chipmaker TSMC Jumps (Live Coverage)",
+          "TSMC Q1 2026 earnings: Record revenue on strong AI chip demand",
+          "Anthropic Has Banks, Regulators Rattled Over AI Cyber Risks. Some Big Names Could Benefit.",
+          "TSMC Tops Q1 Sales Target On Strong AI Chip Demand"
+        ],
+        "timestamp": "2026-04-10T13:33:40.314340+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "AAPL was at 259.52, down 0.97 points or 0.37%, early in the session as of 9:33 AM EDT. The provided headlines are mostly about broader market activity and AI-related chip demand, with no clearly AAPL-specific news in this snapshot.",
+        "attention_note": "Watch for any AAPL-specific headlines and whether the early decline changes as the trading day develops.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "AAPL",
+        "price": 260.49,
+        "change": 1.59,
+        "percent_change": 0.61,
+        "market_status": "At close: 4:00:02 PM EDT",
+        "headlines": [
+          "AI is supercharging the cybersecurity fight",
+          "Microsoft\u2019s New AI Alliances Reframe Its Role In Patents And Security",
+          "Broadcom vs. Qualcomm: Buy One, Avoid the Other",
+          "Vista Investment Partners Just Bought a New $4.7 Million Stake in Federated Hermes",
+          "Amazon Stock Jumps on DOJ\u2019s NFL Probe. It\u2019s About \u2018Affordability for Consumers.\u2019"
+        ],
+        "timestamp": "2026-04-09T22:32:01.255316+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-09T22:32:01.255316+00:00",
+        "price_delta": -0.97,
+        "price_direction": "down",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved down by $0.97 since the last snapshot. 4 new headline(s) detected."
+      }
+    }
+  ],
+  "digest_summary": {
+    "overall_summary": "Market open snapshot: COST is at 1022.26, down 0.95%, with a $9.77 drop since the last snapshot and 3 new headlines. RACE is at 355.29, up 0.91%, with a $3.07 gain and 1 new headline. VWAGY is at 10.73, up 4.89%, with a $0.01 gain and 2 new headlines. AAPL is at 259.52, down 0.37%, with a $0.97 drop and 4 new headlines. All entries show medium confidence, so treat this as a simple watchlist update rather than a full market read.",
+    "top_movers": [
+      {
+        "ticker": "VWAGY",
+        "percent_change": 4.89,
+        "price": 10.73
+      },
+      {
+        "ticker": "COST",
+        "percent_change": -0.95,
+        "price": 1022.26
+      },
+      {
+        "ticker": "RACE",
+        "percent_change": 0.91,
+        "price": 355.29
+      }
+    ],
+    "tickers_with_new_headlines": [
+      "COST",
+      "RACE",
+      "VWAGY",
+      "AAPL"
+    ],
+    "tickers_needing_attention": [
+      "COST",
+      "RACE",
+      "VWAGY",
+      "AAPL"
+    ]
+  }
+}

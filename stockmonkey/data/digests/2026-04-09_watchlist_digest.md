@@ -2,61 +2,63 @@
 
 ## Overall Summary
 
-At the close, AAPL finished at 260.49, up 0.61%; NVDA at 183.91, up 1.01%; and TSLA at 345.62, up 0.69%. All three snapshots say prices were flat versus the last check, suggesting no change between snapshots. Each ticker has 5 headlines, and NVDA shows 1 new headline detected. Overall data quality looks medium-confidence and limited in detail.
+At the close, most names were little changed: COST ended at 1032.03, up 0.17%; RACE at 352.22, up 0.26%; and AAPL at 260.49, up 0.61%, with a note that it was flat versus the last snapshot. VWAGY stood out, closing at 10.72, up 4.79%. Each ticker had 5 headlines, but confidence is only medium across the set, so this is a basic price recap rather than a strong read on the day.
 
 ## Top Movers
 
-- **NVDA**: 1.01% ($183.91)
-- **TSLA**: 0.69% ($345.62)
+- **VWAGY**: 4.79% ($10.72)
 - **AAPL**: 0.61% ($260.49)
-
-## Tickers With New Headlines
-
-- NVDA
+- **RACE**: 0.26% ($352.22)
 
 ## Tickers Needing Attention
 
-- NVDA
+- VWAGY
 
 ---
 
 ## Per-Ticker Detail
 
+### COST
+
+**Price:** $1032.03  |  **Change:** 1.76 (0.17%)  |  At close: 4:00:00 PM EDT
+
+**Summary:** COST closed at $1032.03, up 1.76 points or 0.17% by the end of the session. The snapshot’s headlines are mostly positive and focus on valuation, comparable sales, and March sales growth, though one headline appears unrelated to Costco.
+
+**Watch:** Watch whether upcoming company updates or sales data reinforce the recent sales-focused headlines, while noting that one unrelated headline adds some uncertainty to the snapshot.
+
+**Confidence:** medium
+
+### RACE
+
+**Price:** $352.22  |  **Change:** 0.92 (0.26%)  |  At close: 4:00:02 PM EDT
+
+**Summary:** RACE closed at $352.22, up 0.92 points or 0.26% on the day. The headline mix is mostly company-related but mixed in focus, including a court decision involving Chairman John Elkann, a periodic buyback report, and valuation-oriented commentary, so the snapshot points to a modest move without a single clear driver from the data provided.
+
+**Watch:** Watch for any follow-through tied to the buyback update or additional company-specific filings, since the current headlines are mixed and do not show a clear near-term catalyst.
+
+**Confidence:** medium
+
+### VWAGY
+
+**Price:** $10.72  |  **Change:** 0.49 (4.79%)  |  At close: 3:50:07 PM EDT
+
+**Summary:** VWAGY closed at 10.72, up 0.49 or 4.79% on the day. The snapshot’s headlines are mostly focused on Volkswagen scaling back U.S. EV production and shifting away from the ID.4, but the mixed set of headlines provides limited clarity on what specifically drove today’s move.
+
+**Watch:** Watch for any follow-up company updates on U.S. production plans and whether future headlines provide clearer detail tied to the stock’s recent price move.
+
+**Confidence:** medium
+
 ### AAPL
 
 **Price:** $260.49  |  **Change:** 1.59 (0.61%)  |  At close: 4:00:02 PM EDT
 
-**Summary:** AAPL closed at $260.49, up 1.59 points or 0.61% on the day. The headline list appears sparse and not clearly tied to Apple, so the snapshot mainly shows a modest gain with limited company-specific context.
+**Summary:** AAPL closed at $260.49, up $1.59 or 0.61% on the day. The provided headlines do not appear to be specifically about Apple, so the snapshot offers limited context for the move.
 
-**Watch:** Watch for more directly Apple-related news or upcoming market-moving updates, since the provided headlines do not clearly explain today’s move.
-
-**Confidence:** medium
-
-**vs. Previous:** Price moved flat by $0.00 since the last snapshot.
-
-### NVDA
-
-**Price:** $183.91  |  **Change:** 1.83 (1.01%)  |  At close: 4:00:01 PM EDT
-
-**Summary:** NVDA closed at $183.91, up 1.83 points or 1.01% for the session. The headline mix is focused on AI chip competition, broader Big Tech earnings pressures, and upcoming market catalysts, but the snapshot does not show a direct company-specific driver for today’s move.
-
-**Watch:** Watch for any clearer NVDA-specific updates and how broader AI chip competition and macro headlines develop in the next session.
-
-**Confidence:** medium
-
-**vs. Previous:** Price moved flat by $0.00 since the last snapshot. 1 new headline(s) detected.
-
-### TSLA
-
-**Price:** $345.62  |  **Change:** 2.37 (0.69%)  |  At close: 4:00:01 PM EDT
-
-**Summary:** TSLA closed at $345.62, up $2.37 or 0.69% for the session. The headline mix mentions Tesla, broader auto and market commentary, and CEO-related coverage, but it does not provide a clear single driver for the move from this snapshot alone.
-
-**Watch:** Watch for more specific Tesla updates or market-moving news, since the current headlines are mixed and do not clearly explain the day's price change.
+**Watch:** Watch for Apple-specific news or the next trading session to see whether this modest gain gets clearer follow-through or fresh context.
 
 **Confidence:** medium
 
 **vs. Previous:** Price moved flat by $0.00 since the last snapshot.
 
 ---
-*Generated at 2026-04-09T22:25:02.260127+00:00*
+*Generated at 2026-04-09T22:32:13.538063+00:00*

@@ -1,0 +1,262 @@
+{
+  "watchlist": [
+    "COST",
+    "RACE",
+    "VWAGY",
+    "AAPL",
+    "CL"
+  ],
+  "generated_at": "2026-04-11T08:13:32.040887+00:00",
+  "results": [
+    {
+      "ticker": "COST",
+      "snapshot": {
+        "ticker": "COST",
+        "price": 998.47,
+        "change": -33.56,
+        "percent_change": -3.25,
+        "market_status": "At close: April 10 at 4:00:02 PM EDT",
+        "headlines": [
+          "Costco (COST) Declines More Than Market: Some Information for Investors",
+          "How to Find Strong Retail-Wholesale Stocks Slated for Positive Earnings Surprises",
+          "1 Reason to Buy and Hold Costco Stock for the Next 10 Years",
+          "Costco Gold Bars Spark Viral Buzz And Raise Valuation Questions",
+          "Jim Cramer Highlights Two Catalysts for Costco"
+        ],
+        "timestamp": "2026-04-11T08:12:43.455926+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "COST closed at $998.47, down $33.56 or 3.25% for the session. The headline snapshot is mixed and mostly general in nature, with mentions of earnings surprise screens, long-term views, valuation questions, and other investor commentary rather than a clear company update tied to the move.",
+        "attention_note": "Watch for any fresh company-specific news or upcoming earnings-related updates, since the current headlines do not clearly explain the day's decline.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "COST",
+        "price": 1022.26,
+        "change": -9.77,
+        "percent_change": -0.95,
+        "market_status": "As of 9:33:09 AM EDT. Market Open.",
+        "headlines": [
+          "1 Reason to Buy and Hold Costco Stock for the Next 10 Years",
+          "Costco Gold Bars Spark Viral Buzz And Raise Valuation Questions",
+          "Jim Cramer Highlights Two Catalysts for Costco",
+          "Costco and Walmart Deserve Their Rich Valuations, This Analyst Says",
+          "Costco's US Comparable Sales Demonstrate 'Strong and Steady' Results, UBS Says"
+        ],
+        "timestamp": "2026-04-10T13:33:08.911553+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-10T13:33:08.911553+00:00",
+        "price_delta": -23.79,
+        "price_direction": "down",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved down by $23.79 since the last snapshot. 2 new headline(s) detected."
+      }
+    },
+    {
+      "ticker": "RACE",
+      "snapshot": {
+        "ticker": "RACE",
+        "price": 351.89,
+        "change": -0.33,
+        "percent_change": -0.09,
+        "market_status": "At close: April 10 at 4:00:02 PM EDT",
+        "headlines": [
+          "Iran Conflict Threatens Lucrative Luxury Stock -- Time to Panic, or Time to Buy?",
+          "Ferrari\u2019s 2026 F1 Power Unit Choices And What They Mean For Investors",
+          "FERRARI N.V.: COMPLETION OF THE FIRST TRANCHE AND ANNOUNCEMENT OF THE SECOND TRANCHE OF THE MULTI-YEAR SHARE REPURCHASE PROGRAM",
+          "Ferrari (RACE): Best Growth Stocks to Buy for the Next Decade",
+          "Update: Market Chatter: Stellantis, Ferrari Chairman John Elkann's Bid to Exclude Mother From Estate Rejected by Swiss Court"
+        ],
+        "timestamp": "2026-04-11T08:12:54.284445+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "RACE closed at $351.89, down 0.33 points or 0.09%, showing a very small move on the day. The headline mix centers on Ferrari\u2019s share repurchase program along with broader investor commentary and market chatter tied to external issues.",
+        "attention_note": "Watch for any follow-through on the announced next tranche of the share repurchase program and whether upcoming company updates add clearer context beyond the mixed headlines.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "RACE",
+        "price": 355.29,
+        "change": 3.21,
+        "percent_change": 0.91,
+        "market_status": "As of 9:33:19 AM EDT. Market Open.",
+        "headlines": [
+          "Ferrari (RACE): Best Growth Stocks to Buy for the Next Decade",
+          "Update: Market Chatter: Stellantis, Ferrari Chairman John Elkann's Bid to Exclude Mother From Estate Rejected by Swiss Court",
+          "STRT or RACE: Which Is the Better Value Stock Right Now?",
+          "FERRARI N.V.: PERIODIC REPORT ON THE BUYBACK PROGRAM",
+          "Ferrari (NYSE:RACE) Valuation Check After Recent Pullback And Conflicting Fair Value Signals"
+        ],
+        "timestamp": "2026-04-10T13:33:19.570961+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-10T13:33:19.570961+00:00",
+        "price_delta": -3.4,
+        "price_direction": "down",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved down by $3.40 since the last snapshot. 3 new headline(s) detected."
+      }
+    },
+    {
+      "ticker": "VWAGY",
+      "snapshot": {
+        "ticker": "VWAGY",
+        "price": 10.67,
+        "change": -0.06,
+        "percent_change": -0.56,
+        "market_status": "At close: April 10 at 4:00:00 PM EDT",
+        "headlines": [
+          "Rivian\u2019s Platform Pivot Gains Traction With Volkswagen Cash And Uber Ties",
+          "The Clock May Be Ticking on Rivian Under $16. Is Now the Time to Buy?",
+          "What Drove Tesla Germany's 315% Y/Y Surge in March Registrations?",
+          "Is Volkswagen (XTRA:VOW3) A Value Opportunity After Recent Share Price Weakness?",
+          "Volkswagen to end ID.4 EV production at Tennessee plant"
+        ],
+        "timestamp": "2026-04-11T08:13:02.362645+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "VWAGY closed at $10.67, down 0.06 or 0.56% for the session. The headline mix points to ongoing attention on Volkswagen\u2019s EV activity, including Rivian-related ties and a report about ending ID.4 EV production at its Tennessee plant, but the snapshot does not provide enough detail to gauge the broader impact.",
+        "attention_note": "Watch for any follow-up company updates on EV production plans and partnership-related developments, since the headline set is mixed and partly industry-wide.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "VWAGY",
+        "price": 10.73,
+        "change": 0.5,
+        "percent_change": 4.89,
+        "market_status": "As of 8:57:51 AM EDT. Market Open.",
+        "headlines": [
+          "Is Volkswagen (XTRA:VOW3) A Value Opportunity After Recent Share Price Weakness?",
+          "Volkswagen to end ID.4 EV production at Tennessee plant",
+          "PLTR, RIVN Gain Favor As INTC Momentum Fades",
+          "Volkswagen drops all-electric ID.4 in the US in pivot back to gas SUVs",
+          "Price Prediction: Rivian Stock Eyes Comeback After 2026 Slump"
+        ],
+        "timestamp": "2026-04-10T13:33:29.406215+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-10T13:33:29.406215+00:00",
+        "price_delta": -0.06,
+        "price_direction": "down",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved down by $0.06 since the last snapshot. 3 new headline(s) detected."
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "snapshot": {
+        "ticker": "AAPL",
+        "price": 260.48,
+        "change": -0.01,
+        "percent_change": -0.0,
+        "market_status": "At close: April 10 at 4:00:02 PM EDT",
+        "headlines": [
+          "March inflation: Egg prices may be down, but are other costs moving?",
+          "Apple, Levi\u2019s, and 5 More Stocks Get Analyst Attention",
+          "Wall Street Banks Try Out Anthropic\u2019s Mythos as US Urges",
+          "Mantle\u2019s xStocks Rollout Pushes Tokenized Equities Closer to Real Onchain Liquidity",
+          "Taiwan Semiconductor Manufacturing (TSM): The Best Under-The-Radar AI Stock in Billionaire Ken Fisher\u2019s Portfolio?"
+        ],
+        "timestamp": "2026-04-11T08:13:11.062673+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "AAPL closed at $260.48 on April 10, essentially flat on the day with a -0.01 move. The headline set is mixed and only one item appears directly tied to Apple, so the snapshot gives limited insight beyond a quiet close.",
+        "attention_note": "Watch for more Apple-specific news and whether the stock stays near this level or starts moving more clearly in the next session.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "AAPL",
+        "price": 259.52,
+        "change": -0.97,
+        "percent_change": -0.37,
+        "market_status": "As of 9:33:46 AM EDT. Market Open.",
+        "headlines": [
+          "AI is supercharging the cybersecurity fight",
+          "Stock Market Today: Dow Wavers On Surprise CPI Inflation Data; Nvidia Chipmaker TSMC Jumps (Live Coverage)",
+          "TSMC Q1 2026 earnings: Record revenue on strong AI chip demand",
+          "Anthropic Has Banks, Regulators Rattled Over AI Cyber Risks. Some Big Names Could Benefit.",
+          "TSMC Tops Q1 Sales Target On Strong AI Chip Demand"
+        ],
+        "timestamp": "2026-04-10T13:33:40.314340+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-10T13:33:40.314340+00:00",
+        "price_delta": 0.96,
+        "price_direction": "up",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved up by $0.96 since the last snapshot. 5 new headline(s) detected."
+      }
+    },
+    {
+      "ticker": "CL",
+      "snapshot": {
+        "ticker": "CL",
+        "price": 84.34,
+        "change": -1.7,
+        "percent_change": -1.98,
+        "market_status": "At close: April 10 at 4:00:02 PM EDT",
+        "headlines": [
+          "Bitcoin hits $73,000 on Middle East geopolitical relief and $350M ETF inflow",
+          "Foreign investors dump Indian equities at record pace on energy shock",
+          "US Intelligence: Iran retains \"thousands\" of missiles after air campaign, says WSJ",
+          "Cresco Labs Opens Sunnyside Bridgeport, Expanding Access in the Ohio Valley",
+          "Tariffs and Costs: How Exposed Is Colgate's 2026 Margin Outlook?"
+        ],
+        "timestamp": "2026-04-11T08:13:19.597624+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "CL closed at $84.34, down 1.70 points or 1.98% for the session. The provided headlines are mostly broad market items, with only one item directly related to Colgate mentioning tariffs, costs, and its 2026 margin outlook, so the stock-specific picture in this snapshot is limited.",
+        "attention_note": "Watch for more direct company-specific updates on costs, tariffs, and margin outlook since this snapshot has sparse CL-focused news.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": null,
+      "comparison": null
+    }
+  ],
+  "digest_summary": {
+    "overall_summary": "At the April 10 close, your watchlist was mostly lower. COST had the largest move, down 3.25% to 998.47, followed by CL down 1.98% to 84.34. VWAGY slipped 0.56% to 10.67, while RACE was nearly flat at -0.09% to 351.89. AAPL finished essentially unchanged at 260.48, though its last snapshot was slightly higher. Headline counts were 5 for each name, with several new headlines for COST, RACE, VWAGY, and AAPL. Data quality looks medium-confidence, and CL is missing a comparison note.",
+    "top_movers": [
+      {
+        "ticker": "COST",
+        "percent_change": -3.25,
+        "price": 998.47
+      },
+      {
+        "ticker": "CL",
+        "percent_change": -1.98,
+        "price": 84.34
+      },
+      {
+        "ticker": "VWAGY",
+        "percent_change": -0.56,
+        "price": 10.67
+      }
+    ],
+    "tickers_with_new_headlines": [
+      "COST",
+      "RACE",
+      "VWAGY",
+      "AAPL"
+    ],
+    "tickers_needing_attention": [
+      "COST",
+      "RACE",
+      "VWAGY",
+      "AAPL"
+    ]
+  }
+}

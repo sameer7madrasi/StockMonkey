@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-04-13T16:08:08.415499+00:00",
+  "stocks": [
+    {
+      "ticker": "COST",
+      "price": 983.86,
+      "change": -14.61,
+      "percent_change": -1.46,
+      "summary": "COST was down 1.46% to $983.86 in midday trading. The headline mix points to continued attention on retail competition and Costco\u2019s international sales, but the snapshot does not include direct company-specific news explaining today\u2019s move."
+    },
+    {
+      "ticker": "RACE",
+      "price": 350.99,
+      "change": -0.91,
+      "percent_change": -0.26,
+      "summary": "RACE was down 0.26% to $350.99 in midday trading. The snapshot headlines point to partnership news, Formula 1-related investor interest, and an update on Ferrari\u2019s multi-year share repurchase program, while some headlines are opinion-driven rather than factual updates."
+    },
+    {
+      "ticker": "AAPL",
+      "price": 257.07,
+      "change": -3.41,
+      "percent_change": -1.31,
+      "summary": "AAPL was at $257.07 around midday, down $3.41 or 1.31% while the market was open. The headline list is mostly broad tech coverage and mentions Apple in valuation and Berkshire-related context, but it does not provide a clear company-specific catalyst for today\u2019s move."
+    },
+    {
+      "ticker": "CL",
+      "price": 83.2,
+      "change": -1.14,
+      "percent_change": -1.35,
+      "summary": "CL was down 1.35% to 83.2 by midday. The headline set is mixed and mostly broad market or energy-related, with only one item directly about Colgate-Palmolive and its targets and 2030 plan, so the stock-specific picture in this snapshot is limited."
+    }
+  ]
+}

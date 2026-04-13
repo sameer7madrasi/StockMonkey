@@ -27,10 +27,31 @@ from app.watchlist import load_tickers       # noqa: E402
 from app.format_digest import format_digest_markdown  # noqa: E402
 
 _DIGEST_DIR = _PROJECT_ROOT / "data" / "digests"
+_DASHBOARD_DATA = _PROJECT_ROOT / "docs" / "dashboard" / "data"
+_GHPAGES_DATA = _PROJECT_ROOT.parent / "docs" / "data"
+
+
+def _build_dashboard_data(digest: dict) -> dict:
+    """Extract a compact summary for the web dashboard."""
+    stocks = []
+    for r in digest.get("results", []):
+        snap = r.get("snapshot") or {}
+        llm = r.get("llm_summary") or {}
+        stocks.append({
+            "ticker": r.get("ticker", "???"),
+            "price": snap.get("price"),
+            "change": snap.get("change"),
+            "percent_change": snap.get("percent_change"),
+            "summary": llm.get("summary"),
+        })
+    return {
+        "generated_at": digest.get("generated_at"),
+        "stocks": stocks,
+    }
 
 
 def _save_artifacts(digest: dict, date_str: str) -> tuple[Path, Path]:
-    """Write JSON and Markdown artifacts. Returns (json_path, md_path)."""
+    """Write JSON, Markdown, and dashboard artifacts. Returns (json_path, md_path)."""
     _DIGEST_DIR.mkdir(parents=True, exist_ok=True)
 
     json_path = _DIGEST_DIR / f"{date_str}_watchlist_digest.json"
@@ -38,6 +59,14 @@ def _save_artifacts(digest: dict, date_str: str) -> tuple[Path, Path]:
 
     md_path = _DIGEST_DIR / f"{date_str}_watchlist_digest.md"
     md_path.write_text(format_digest_markdown(digest), encoding="utf-8")
+
+    dashboard_json = json.dumps(_build_dashboard_data(digest), indent=2)
+
+    _DASHBOARD_DATA.mkdir(parents=True, exist_ok=True)
+    (_DASHBOARD_DATA / "latest.json").write_text(dashboard_json, encoding="utf-8")
+
+    _GHPAGES_DATA.mkdir(parents=True, exist_ok=True)
+    (_GHPAGES_DATA / "latest.json").write_text(dashboard_json, encoding="utf-8")
 
     return json_path, md_path
 

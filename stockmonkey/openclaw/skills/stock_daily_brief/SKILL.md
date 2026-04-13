@@ -75,9 +75,40 @@ source .venv/bin/activate
 python -c "from app.watchlist import remove_ticker; removed, tickers = remove_ticker('TICKER'); print(f'Removed: {removed}. Watchlist: {tickers}')"
 ```
 
-## Output Format
+## Telegram Message Format
 
-The brief produces Markdown with these sections:
+When delivering the daily brief via Telegram (cron or on-demand), send a SHORT
+compact message — NOT the full Markdown digest. Use this format:
+
+```
+Yo what's good, here's how the stocks are looking:
+
+• TICKER1 ▲ +X.XX%
+• TICKER2 ▼ -X.XX%
+• TICKER3 ▼ -X.XX%
+
+Tap for details: https://sameer7madrasi.github.io/StockMonkey/
+```
+
+Use ▲ for up and ▼ for down. The link opens an interactive dashboard
+where each stock can be tapped for price, change, and summary details.
+
+## Dashboard Data
+
+The pipeline automatically writes `docs/dashboard/data/latest.json` which
+the web dashboard reads. After running the pipeline, commit and push the
+updated `latest.json` so the dashboard reflects the latest data:
+
+```bash
+cd "/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey"
+git add docs/data/latest.json stockmonkey/docs/dashboard/data/latest.json
+git commit -m "update dashboard data"
+git push origin main
+```
+
+## Full Output Format
+
+The full Markdown digest (saved to artifacts) contains these sections:
 - **Overall Summary** — LLM-generated narrative
 - **Top Movers** — tickers with largest price swings
 - **Tickers With New Headlines** — tickers that have fresh news

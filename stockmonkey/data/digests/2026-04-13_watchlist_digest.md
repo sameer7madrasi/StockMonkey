@@ -2,27 +2,13 @@
 
 ## Overall Summary
 
-Midday snapshot: all four watchlist names are lower. COST is at 983.86, down 1.46% and $14.61 since the last snapshot, with 5 new headlines. AAPL is at 257.07, down 1.31% and $3.41, with 5 new headlines. CL is at 83.20, down 1.35% and $1.14, with 5 new headlines. RACE is at 350.99, down 0.26% and $0.90, with 1 new headline. Market data is current around 12:07 PM EDT, market open. Confidence is medium across all entries.
+At the close, RACE finished at $355.14, up 0.92%. COST closed at $980.85, down 1.76%, while AAPL ended at $259.20, down 0.49%, and CL closed at $83.98, down 0.43%. Each name shows 5 headlines with medium-confidence data. The comparison notes say all four were flat versus the last snapshot, so this looks like end-of-day data with limited intraday change detail.
 
 ## Top Movers
 
-- **COST**: -1.46% ($983.86)
-- **CL**: -1.35% ($83.2)
-- **AAPL**: -1.31% ($257.07)
-
-## Tickers With New Headlines
-
-- COST
-- RACE
-- AAPL
-- CL
-
-## Tickers Needing Attention
-
-- COST
-- RACE
-- AAPL
-- CL
+- **COST**: -1.76% ($980.85)
+- **RACE**: 0.92% ($355.14)
+- **AAPL**: -0.49% ($259.2)
 
 ---
 
@@ -30,51 +16,51 @@ Midday snapshot: all four watchlist names are lower. COST is at 983.86, down 1.4
 
 ### COST
 
-**Price:** $983.86  |  **Change:** -14.61 (-1.46%)  |  As of 12:07:12 PM EDT. Market Open.
+**Price:** $980.85  |  **Change:** -17.62 (-1.76%)  |  At close: 4:00:01 PM EDT
 
-**Summary:** COST was down 1.46% to $983.86 in midday trading. The headline mix points to continued attention on retail competition and Costco’s international sales, but the snapshot does not include direct company-specific news explaining today’s move.
+**Summary:** COST closed at $980.85, down 17.62 points or 1.76% on the day. The headline list is mixed and mostly comparative or sector-related, with one Costco-specific item pointing to international sales growth, so the snapshot gives only limited context for the move.
 
-**Watch:** Watch for any company-specific updates, retail peer reactions, or further detail on international sales trends that could add context to the stock’s intraday move.
+**Watch:** Watch for more direct Costco-specific updates, especially on sales trends and international performance, since the current headlines do not clearly explain today's decline.
 
 **Confidence:** medium
 
-**vs. Previous:** Price moved down by $14.61 since the last snapshot. 5 new headline(s) detected.
+**vs. Previous:** Price moved flat by $0.00 since the last snapshot.
 
 ### RACE
 
-**Price:** $350.99  |  **Change:** -0.91 (-0.26%)  |  As of 12:07:38 PM EDT. Market Open.
+**Price:** $355.14  |  **Change:** 3.25 (0.92%)  |  At close: 4:00:02 PM EDT
 
-**Summary:** RACE was down 0.26% to $350.99 in midday trading. The snapshot headlines point to partnership news, Formula 1-related investor interest, and an update on Ferrari’s multi-year share repurchase program, while some headlines are opinion-driven rather than factual updates.
+**Summary:** RACE closed at $355.14, up 3.25 points or 0.92% on the day. The snapshot headlines point to partnership news, Formula 1 power unit discussion, and an update on Ferrari’s multi-year share repurchase program, while some headlines are opinion-based rather than purely factual.
 
-**Watch:** Watch whether the stock reacts further to the repurchase program update and any additional company-specific news later in the session.
+**Watch:** Watch for any official follow-up from Ferrari on the share repurchase program and partnership-related updates, since several headlines here are commentary-driven.
 
 **Confidence:** medium
 
-**vs. Previous:** Price moved down by $0.90 since the last snapshot. 1 new headline(s) detected.
+**vs. Previous:** Price moved flat by $0.00 since the last snapshot.
 
 ### AAPL
 
-**Price:** $257.07  |  **Change:** -3.41 (-1.31%)  |  As of 12:07:51 PM EDT. Market Open.
+**Price:** $259.2  |  **Change:** -1.28 (-0.49%)  |  At close: 4:00:01 PM EDT
 
-**Summary:** AAPL was at $257.07 around midday, down $3.41 or 1.31% while the market was open. The headline list is mostly broad tech coverage and mentions Apple in valuation and Berkshire-related context, but it does not provide a clear company-specific catalyst for today’s move.
+**Summary:** AAPL closed at $259.20, down $1.28 or 0.49% on the session. The headline mix mentions Apple in broader AI and valuation commentary, but the snapshot does not show a clear company-specific catalyst tied to today’s move.
 
-**Watch:** Watch for any Apple-specific news or management, product, or market updates later in the session, since the current headlines do not clearly explain the decline.
+**Watch:** Watch for more direct Apple-specific news or filings, since the current headlines are broad and do not clearly explain the day’s price change.
 
 **Confidence:** medium
 
-**vs. Previous:** Price moved down by $3.41 since the last snapshot. 5 new headline(s) detected.
+**vs. Previous:** Price moved flat by $0.00 since the last snapshot.
 
 ### CL
 
-**Price:** $83.2  |  **Change:** -1.14 (-1.35%)  |  As of 12:07:35 PM EDT. Market Open.
+**Price:** $83.98  |  **Change:** -0.36 (-0.43%)  |  At close: 4:00:02 PM EDT
 
-**Summary:** CL was down 1.35% to 83.2 by midday. The headline set is mixed and mostly broad market or energy-related, with only one item directly about Colgate-Palmolive and its targets and 2030 plan, so the stock-specific picture in this snapshot is limited.
+**Summary:** CL closed at 83.98, down 0.36 or 0.43% by the end of the session. The headline snapshot is focused on oil markets, supply risks, and broader energy policy, suggesting attention remains on geopolitical and supply-related developments rather than any company-specific update.
 
-**Watch:** Watch for more direct company updates tied to Colgate-Palmolive’s targets and 2030 plan, since most of the current headlines are not specific to CL.
+**Watch:** Watch whether upcoming oil-market and supply-risk headlines continue to shift sentiment, since the current snapshot is driven mainly by broad macro energy news.
 
 **Confidence:** medium
 
-**vs. Previous:** Price moved down by $1.14 since the last snapshot. 5 new headline(s) detected.
+**vs. Previous:** Price moved flat by $0.00 since the last snapshot.
 
 ---
-*Generated at 2026-04-13T16:08:08.415499+00:00*
+*Generated at 2026-04-13T20:31:09.677194+00:00*

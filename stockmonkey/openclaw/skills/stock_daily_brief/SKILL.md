@@ -5,6 +5,29 @@ description: Generate daily stock watchlist briefs and manage a personal ticker 
 
 # Skill: StockMonkey — Daily Stock Brief & Watchlist Manager
 
+## CRITICAL — Telegram Message Format
+
+When replying with stock data via Telegram — whether from a cron job OR an
+on-demand request from the user — you MUST send ONLY this compact format.
+Do NOT send the full Markdown digest. Do NOT send long paragraphs.
+Do NOT include summaries, headlines, or per-ticker detail in the message.
+
+The ONLY message the user should receive is:
+
+```
+Yo what's good, here's how the stocks are looking:
+
+• TICKER1 ▲ +X.XX% · $PRICE
+• TICKER2 ▼ -X.XX% · $PRICE
+• TICKER3 ▼ -X.XX% · $PRICE
+
+Tap for details: https://sameer7madrasi.github.io/StockMonkey/
+```
+
+Use ▲ for stocks that are up and ▼ for stocks that are down.
+Include the percent change and current price for each ticker.
+Always end with the dashboard link. That is the ENTIRE message. Nothing else.
+
 ## Purpose
 
 Generate daily stock watchlist briefs and manage a personal ticker watchlist.
@@ -74,24 +97,6 @@ cd "/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey/stockmonkey"
 source .venv/bin/activate
 python -c "from app.watchlist import remove_ticker; removed, tickers = remove_ticker('TICKER'); print(f'Removed: {removed}. Watchlist: {tickers}')"
 ```
-
-## Telegram Message Format
-
-When delivering the daily brief via Telegram (cron or on-demand), send a SHORT
-compact message — NOT the full Markdown digest. Use this format:
-
-```
-Yo what's good, here's how the stocks are looking:
-
-• TICKER1 ▲ +X.XX%
-• TICKER2 ▼ -X.XX%
-• TICKER3 ▼ -X.XX%
-
-Tap for details: https://sameer7madrasi.github.io/StockMonkey/
-```
-
-Use ▲ for up and ▼ for down. The link opens an interactive dashboard
-where each stock can be tapped for price, change, and summary details.
 
 ## Dashboard Data
 

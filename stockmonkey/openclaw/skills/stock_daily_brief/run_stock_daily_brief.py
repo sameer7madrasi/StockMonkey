@@ -50,6 +50,28 @@ def _build_dashboard_data(digest: dict) -> dict:
     }
 
 
+_DASHBOARD_URL = "https://sameer7madrasi.github.io/StockMonkey/"
+
+
+def _build_compact_message(digest: dict) -> str:
+    """Build the short Telegram-friendly message with per-ticker lines."""
+    lines = ["Yo what's good, here's how the stocks are looking:", ""]
+    for r in digest.get("results", []):
+        snap = r.get("snapshot") or {}
+        ticker = r.get("ticker", "???")
+        pct = snap.get("percent_change")
+        price = snap.get("price")
+        if pct is None or price is None:
+            lines.append(f"• {ticker} — data unavailable")
+            continue
+        arrow = "▲" if pct >= 0 else "▼"
+        sign = "+" if pct >= 0 else ""
+        lines.append(f"• {ticker} {arrow} {sign}{pct:.2f}% · ${price:,.2f}")
+    lines.append("")
+    lines.append(f"Tap for details: {_DASHBOARD_URL}")
+    return "\n".join(lines)
+
+
 def _save_artifacts(digest: dict, date_str: str) -> tuple[Path, Path]:
     """Write JSON, Markdown, and dashboard artifacts. Returns (json_path, md_path)."""
     _DIGEST_DIR.mkdir(parents=True, exist_ok=True)
@@ -99,11 +121,9 @@ def run_daily_brief(tickers: list[str] | None = None) -> str:
 
     json_path, md_path = _save_artifacts(digest, date_str)
 
-    md_text = format_digest_markdown(digest)
-
-    print(md_text)
-    print(f"\n---\nArtifacts saved:\n  JSON: {json_path}\n  MD:   {md_path}")
-    return md_text
+    compact = _build_compact_message(digest)
+    print(compact)
+    return compact
 
 
 def main() -> None:

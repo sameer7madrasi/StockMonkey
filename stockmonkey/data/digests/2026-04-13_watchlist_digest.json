@@ -5,64 +5,64 @@
     "AAPL",
     "CL"
   ],
-  "generated_at": "2026-04-13T16:08:08.415499+00:00",
+  "generated_at": "2026-04-13T20:31:09.677194+00:00",
   "results": [
     {
       "ticker": "COST",
       "snapshot": {
         "ticker": "COST",
-        "price": 983.86,
-        "change": -14.61,
-        "percent_change": -1.46,
-        "market_status": "As of 12:07:12 PM EDT. Market Open.",
+        "price": 980.85,
+        "change": -17.62,
+        "percent_change": -1.76,
+        "market_status": "At close: 4:00:01 PM EDT",
         "headlines": [
+          "Walmart vs. Costco: One Dividend Is Growing Twice as Fast as the Other",
           "MTY Food Group Q1 Earnings Call Highlights",
           "BJ's Membership Growth Hits Record: Is Loyalty the Key Driver?",
           "Costco's International Sales Surge Signals Shift in Growth Mix",
-          "Walmart's AI Push Gains Steam: Will Sparky Boost Sales Growth?",
-          "Costco Japan's top-selling product baffled execs \u2014 until they watched shoppers open it and sniff. Here's what they said"
+          "Walmart's AI Push Gains Steam: Will Sparky Boost Sales Growth?"
         ],
-        "timestamp": "2026-04-13T16:07:28.537943+00:00",
+        "timestamp": "2026-04-13T20:30:30.630393+00:00",
         "errors": []
       },
       "llm_summary": {
-        "summary": "COST was down 1.46% to $983.86 in midday trading. The headline mix points to continued attention on retail competition and Costco\u2019s international sales, but the snapshot does not include direct company-specific news explaining today\u2019s move.",
-        "attention_note": "Watch for any company-specific updates, retail peer reactions, or further detail on international sales trends that could add context to the stock\u2019s intraday move.",
+        "summary": "COST closed at $980.85, down 17.62 points or 1.76% on the day. The headline list is mixed and mostly comparative or sector-related, with one Costco-specific item pointing to international sales growth, so the snapshot gives only limited context for the move.",
+        "attention_note": "Watch for more direct Costco-specific updates, especially on sales trends and international performance, since the current headlines do not clearly explain today's decline.",
         "confidence": "medium"
       },
       "previous_snapshot": {
         "ticker": "COST",
-        "price": 998.47,
-        "change": -33.56,
-        "percent_change": -3.25,
-        "market_status": "At close: April 10 at 4:00:02 PM EDT",
+        "price": 980.85,
+        "change": -17.62,
+        "percent_change": -1.76,
+        "market_status": "At close: 4:00:01 PM EDT",
         "headlines": [
-          "Costco (COST) Declines More Than Market: Some Information for Investors",
-          "How to Find Strong Retail-Wholesale Stocks Slated for Positive Earnings Surprises",
-          "1 Reason to Buy and Hold Costco Stock for the Next 10 Years",
-          "Costco Gold Bars Spark Viral Buzz And Raise Valuation Questions",
-          "Jim Cramer Highlights Two Catalysts for Costco"
+          "Walmart vs. Costco: One Dividend Is Growing Twice as Fast as the Other",
+          "MTY Food Group Q1 Earnings Call Highlights",
+          "BJ's Membership Growth Hits Record: Is Loyalty the Key Driver?",
+          "Costco's International Sales Surge Signals Shift in Growth Mix",
+          "Walmart's AI Push Gains Steam: Will Sparky Boost Sales Growth?"
         ],
-        "timestamp": "2026-04-11T08:12:43.455926+00:00",
+        "timestamp": "2026-04-13T20:27:08.749679+00:00",
         "errors": []
       },
       "comparison": {
-        "previous_timestamp": "2026-04-11T08:12:43.455926+00:00",
-        "price_delta": -14.61,
-        "price_direction": "down",
+        "previous_timestamp": "2026-04-13T20:27:08.749679+00:00",
+        "price_delta": 0.0,
+        "price_direction": "flat",
         "headline_count_change": 0,
-        "new_headlines_detected": true,
-        "comparison_note": "Price moved down by $14.61 since the last snapshot. 5 new headline(s) detected."
+        "new_headlines_detected": false,
+        "comparison_note": "Price moved flat by $0.00 since the last snapshot."
       }
     },
     {
       "ticker": "RACE",
       "snapshot": {
         "ticker": "RACE",
-        "price": 350.99,
-        "change": -0.91,
-        "percent_change": -0.26,
-        "market_status": "As of 12:07:38 PM EDT. Market Open.",
+        "price": 355.14,
+        "change": 3.25,
+        "percent_change": 0.92,
+        "market_status": "At close: 4:00:02 PM EDT",
         "headlines": [
           "Philip Morris International Joins Ferrari Hypersail as Principal Partner, Building on 50-Year Relationship",
           "Iran Conflict Threatens Lucrative Luxury Stock -- Time to Panic, or Time to Buy?",
@@ -70,166 +70,156 @@
           "FERRARI N.V.: COMPLETION OF THE FIRST TRANCHE AND ANNOUNCEMENT OF THE SECOND TRANCHE OF THE MULTI-YEAR SHARE REPURCHASE PROGRAM",
           "Ferrari (RACE): Best Growth Stocks to Buy for the Next Decade"
         ],
-        "timestamp": "2026-04-13T16:07:38.669340+00:00",
+        "timestamp": "2026-04-13T20:30:39.306499+00:00",
         "errors": []
       },
       "llm_summary": {
-        "summary": "RACE was down 0.26% to $350.99 in midday trading. The snapshot headlines point to partnership news, Formula 1-related investor interest, and an update on Ferrari\u2019s multi-year share repurchase program, while some headlines are opinion-driven rather than factual updates.",
-        "attention_note": "Watch whether the stock reacts further to the repurchase program update and any additional company-specific news later in the session.",
+        "summary": "RACE closed at $355.14, up 3.25 points or 0.92% on the day. The snapshot headlines point to partnership news, Formula 1 power unit discussion, and an update on Ferrari\u2019s multi-year share repurchase program, while some headlines are opinion-based rather than purely factual.",
+        "attention_note": "Watch for any official follow-up from Ferrari on the share repurchase program and partnership-related updates, since several headlines here are commentary-driven.",
         "confidence": "medium"
       },
       "previous_snapshot": {
         "ticker": "RACE",
-        "price": 351.89,
-        "change": -0.33,
-        "percent_change": -0.09,
-        "market_status": "At close: April 10 at 4:00:02 PM EDT",
+        "price": 355.14,
+        "change": 3.25,
+        "percent_change": 0.92,
+        "market_status": "At close: 4:00:02 PM EDT",
         "headlines": [
+          "Philip Morris International Joins Ferrari Hypersail as Principal Partner, Building on 50-Year Relationship",
           "Iran Conflict Threatens Lucrative Luxury Stock -- Time to Panic, or Time to Buy?",
           "Ferrari\u2019s 2026 F1 Power Unit Choices And What They Mean For Investors",
           "FERRARI N.V.: COMPLETION OF THE FIRST TRANCHE AND ANNOUNCEMENT OF THE SECOND TRANCHE OF THE MULTI-YEAR SHARE REPURCHASE PROGRAM",
-          "Ferrari (RACE): Best Growth Stocks to Buy for the Next Decade",
-          "Update: Market Chatter: Stellantis, Ferrari Chairman John Elkann's Bid to Exclude Mother From Estate Rejected by Swiss Court"
+          "Ferrari (RACE): Best Growth Stocks to Buy for the Next Decade"
         ],
-        "timestamp": "2026-04-11T08:12:54.284445+00:00",
+        "timestamp": "2026-04-13T20:27:17.641084+00:00",
         "errors": []
       },
       "comparison": {
-        "previous_timestamp": "2026-04-11T08:12:54.284445+00:00",
-        "price_delta": -0.9,
-        "price_direction": "down",
+        "previous_timestamp": "2026-04-13T20:27:17.641084+00:00",
+        "price_delta": 0.0,
+        "price_direction": "flat",
         "headline_count_change": 0,
-        "new_headlines_detected": true,
-        "comparison_note": "Price moved down by $0.90 since the last snapshot. 1 new headline(s) detected."
+        "new_headlines_detected": false,
+        "comparison_note": "Price moved flat by $0.00 since the last snapshot."
       }
     },
     {
       "ticker": "AAPL",
       "snapshot": {
         "ticker": "AAPL",
-        "price": 257.07,
-        "change": -3.41,
-        "percent_change": -1.31,
-        "market_status": "As of 12:07:51 PM EDT. Market Open.",
+        "price": 259.2,
+        "change": -1.28,
+        "percent_change": -0.49,
+        "market_status": "At close: 4:00:01 PM EDT",
         "headlines": [
-          "Amazon stock is leading the 'Magnificent 7' rebound \u2014 but the rally is hitting a ceiling: Chart of the Day",
-          "3 AI Stocks That Are Way Cheaper Than Apple Right Now",
-          "Warren Buffett Reveals the Real Reason Berkshire Has Been Dumping Apple Stock",
-          "Goldman Says It\u2019s Time to Buy Tech. I\u2019d Start With These Tech Deals",
-          "Intel\u2019s $100 Billion April Rally Makes It Market\u2019s Hottest Stock"
+          "Amazon stock leads 9-day Mag 7 performance, Tesla falls behind",
+          "Why Millions of Investors Are Buying the Wrong NASDAQ ETF",
+          "The More Artificial Intelligence (AI) Models That Come Out, the More I'm Convinced Apple Has the Right Strategy",
+          "Quantum computing is a once-in-a-lifetime opportunity for Canada. Here's how we can grow the industry at home",
+          "3 AI Stocks That Are Way Cheaper Than Apple Right Now"
         ],
-        "timestamp": "2026-04-13T16:07:46.760778+00:00",
+        "timestamp": "2026-04-13T20:30:47.260033+00:00",
         "errors": []
       },
       "llm_summary": {
-        "summary": "AAPL was at $257.07 around midday, down $3.41 or 1.31% while the market was open. The headline list is mostly broad tech coverage and mentions Apple in valuation and Berkshire-related context, but it does not provide a clear company-specific catalyst for today\u2019s move.",
-        "attention_note": "Watch for any Apple-specific news or management, product, or market updates later in the session, since the current headlines do not clearly explain the decline.",
+        "summary": "AAPL closed at $259.20, down $1.28 or 0.49% on the session. The headline mix mentions Apple in broader AI and valuation commentary, but the snapshot does not show a clear company-specific catalyst tied to today\u2019s move.",
+        "attention_note": "Watch for more direct Apple-specific news or filings, since the current headlines are broad and do not clearly explain the day\u2019s price change.",
         "confidence": "medium"
       },
       "previous_snapshot": {
         "ticker": "AAPL",
-        "price": 260.48,
-        "change": -0.01,
-        "percent_change": -0.0,
-        "market_status": "At close: April 10 at 4:00:02 PM EDT",
+        "price": 259.2,
+        "change": -1.28,
+        "percent_change": -0.49,
+        "market_status": "At close: 4:00:01 PM EDT",
         "headlines": [
-          "March inflation: Egg prices may be down, but are other costs moving?",
-          "Apple, Levi\u2019s, and 5 More Stocks Get Analyst Attention",
-          "Wall Street Banks Try Out Anthropic\u2019s Mythos as US Urges",
-          "Mantle\u2019s xStocks Rollout Pushes Tokenized Equities Closer to Real Onchain Liquidity",
-          "Taiwan Semiconductor Manufacturing (TSM): The Best Under-The-Radar AI Stock in Billionaire Ken Fisher\u2019s Portfolio?"
+          "Amazon stock leads 9-day Mag 7 performance, Tesla falls behind",
+          "Why Millions of Investors Are Buying the Wrong NASDAQ ETF",
+          "The More Artificial Intelligence (AI) Models That Come Out, the More I'm Convinced Apple Has the Right Strategy",
+          "Quantum computing is a once-in-a-lifetime opportunity for Canada. Here's how we can grow the industry at home",
+          "3 AI Stocks That Are Way Cheaper Than Apple Right Now"
         ],
-        "timestamp": "2026-04-11T08:13:11.062673+00:00",
+        "timestamp": "2026-04-13T20:27:26.473554+00:00",
         "errors": []
       },
       "comparison": {
-        "previous_timestamp": "2026-04-11T08:13:11.062673+00:00",
-        "price_delta": -3.41,
-        "price_direction": "down",
+        "previous_timestamp": "2026-04-13T20:27:26.473554+00:00",
+        "price_delta": 0.0,
+        "price_direction": "flat",
         "headline_count_change": 0,
-        "new_headlines_detected": true,
-        "comparison_note": "Price moved down by $3.41 since the last snapshot. 5 new headline(s) detected."
+        "new_headlines_detected": false,
+        "comparison_note": "Price moved flat by $0.00 since the last snapshot."
       }
     },
     {
       "ticker": "CL",
       "snapshot": {
         "ticker": "CL",
-        "price": 83.2,
-        "change": -1.14,
-        "percent_change": -1.35,
-        "market_status": "As of 12:07:35 PM EDT. Market Open.",
+        "price": 83.98,
+        "change": -0.36,
+        "percent_change": -0.43,
+        "market_status": "At close: 4:00:02 PM EDT",
         "headlines": [
+          "Oil markets price fragile peace as options signal lingering conflict risk",
           "How global fiscal policy is reacting to the recent energy shock",
           "South Korea nears Kazakhstan oil deal as Middle East supply risks mount",
           "Japan targets Asian oil alliance as supply bottlenecks persist",
-          "Why are Japanese equities so resilient despite the Middle East war?",
-          "How The Colgate Palmolive (CL) Investment Story Is Shifting With New Targets And 2030 Plan"
+          "Why are Japanese equities so resilient despite the Middle East war?"
         ],
-        "timestamp": "2026-04-13T16:07:56.301006+00:00",
+        "timestamp": "2026-04-13T20:30:57.657799+00:00",
         "errors": []
       },
       "llm_summary": {
-        "summary": "CL was down 1.35% to 83.2 by midday. The headline set is mixed and mostly broad market or energy-related, with only one item directly about Colgate-Palmolive and its targets and 2030 plan, so the stock-specific picture in this snapshot is limited.",
-        "attention_note": "Watch for more direct company updates tied to Colgate-Palmolive\u2019s targets and 2030 plan, since most of the current headlines are not specific to CL.",
+        "summary": "CL closed at 83.98, down 0.36 or 0.43% by the end of the session. The headline snapshot is focused on oil markets, supply risks, and broader energy policy, suggesting attention remains on geopolitical and supply-related developments rather than any company-specific update.",
+        "attention_note": "Watch whether upcoming oil-market and supply-risk headlines continue to shift sentiment, since the current snapshot is driven mainly by broad macro energy news.",
         "confidence": "medium"
       },
       "previous_snapshot": {
         "ticker": "CL",
-        "price": 84.34,
-        "change": -1.7,
-        "percent_change": -1.98,
-        "market_status": "At close: April 10 at 4:00:02 PM EDT",
+        "price": 83.98,
+        "change": -0.36,
+        "percent_change": -0.43,
+        "market_status": "At close: 4:00:02 PM EDT",
         "headlines": [
-          "Bitcoin hits $73,000 on Middle East geopolitical relief and $350M ETF inflow",
-          "Foreign investors dump Indian equities at record pace on energy shock",
-          "US Intelligence: Iran retains \"thousands\" of missiles after air campaign, says WSJ",
-          "Cresco Labs Opens Sunnyside Bridgeport, Expanding Access in the Ohio Valley",
-          "Tariffs and Costs: How Exposed Is Colgate's 2026 Margin Outlook?"
+          "Oil markets price fragile peace as options signal lingering conflict risk",
+          "How global fiscal policy is reacting to the recent energy shock",
+          "South Korea nears Kazakhstan oil deal as Middle East supply risks mount",
+          "Japan targets Asian oil alliance as supply bottlenecks persist",
+          "Why are Japanese equities so resilient despite the Middle East war?"
         ],
-        "timestamp": "2026-04-11T08:13:19.597624+00:00",
+        "timestamp": "2026-04-13T20:27:36.040387+00:00",
         "errors": []
       },
       "comparison": {
-        "previous_timestamp": "2026-04-11T08:13:19.597624+00:00",
-        "price_delta": -1.14,
-        "price_direction": "down",
+        "previous_timestamp": "2026-04-13T20:27:36.040387+00:00",
+        "price_delta": 0.0,
+        "price_direction": "flat",
         "headline_count_change": 0,
-        "new_headlines_detected": true,
-        "comparison_note": "Price moved down by $1.14 since the last snapshot. 5 new headline(s) detected."
+        "new_headlines_detected": false,
+        "comparison_note": "Price moved flat by $0.00 since the last snapshot."
       }
     }
   ],
   "digest_summary": {
-    "overall_summary": "Midday snapshot: all four watchlist names are lower. COST is at 983.86, down 1.46% and $14.61 since the last snapshot, with 5 new headlines. AAPL is at 257.07, down 1.31% and $3.41, with 5 new headlines. CL is at 83.20, down 1.35% and $1.14, with 5 new headlines. RACE is at 350.99, down 0.26% and $0.90, with 1 new headline. Market data is current around 12:07 PM EDT, market open. Confidence is medium across all entries.",
+    "overall_summary": "At the close, RACE finished at $355.14, up 0.92%. COST closed at $980.85, down 1.76%, while AAPL ended at $259.20, down 0.49%, and CL closed at $83.98, down 0.43%. Each name shows 5 headlines with medium-confidence data. The comparison notes say all four were flat versus the last snapshot, so this looks like end-of-day data with limited intraday change detail.",
     "top_movers": [
       {
         "ticker": "COST",
-        "percent_change": -1.46,
-        "price": 983.86
+        "percent_change": -1.76,
+        "price": 980.85
       },
       {
-        "ticker": "CL",
-        "percent_change": -1.35,
-        "price": 83.2
+        "ticker": "RACE",
+        "percent_change": 0.92,
+        "price": 355.14
       },
       {
         "ticker": "AAPL",
-        "percent_change": -1.31,
-        "price": 257.07
+        "percent_change": -0.49,
+        "price": 259.2
       }
     ],
-    "tickers_with_new_headlines": [
-      "COST",
-      "RACE",
-      "AAPL",
-      "CL"
-    ],
-    "tickers_needing_attention": [
-      "COST",
-      "RACE",
-      "AAPL",
-      "CL"
-    ]
+    "tickers_with_new_headlines": [],
+    "tickers_needing_attention": []
   }
 }

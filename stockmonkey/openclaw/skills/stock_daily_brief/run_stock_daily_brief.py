@@ -27,6 +27,7 @@ from app.watchlist import load_tickers       # noqa: E402
 from app.format_digest import format_digest_markdown  # noqa: E402
 from app.positions import load_positions     # noqa: E402
 from app.db.database import get_connection   # noqa: E402
+from app.notion_sync import sync_from_notion # noqa: E402
 
 _DIGEST_DIR = _PROJECT_ROOT / "data" / "digests"
 _DASHBOARD_DATA = _PROJECT_ROOT / "docs" / "dashboard" / "data"
@@ -56,8 +57,17 @@ def _get_price_history(ticker: str, days: int = 30) -> list[dict]:
         return []
 
 
+def _sync_positions_quietly() -> None:
+    """Attempt to sync positions from Notion; swallow errors so the pipeline continues."""
+    try:
+        sync_from_notion()
+    except Exception:
+        pass
+
+
 def _build_dashboard_data(digest: dict) -> dict:
     """Extract a compact summary for the web dashboard."""
+    _sync_positions_quietly()
     positions_list = load_positions()
     pos_map = {p["ticker"].upper(): p for p in positions_list}
 

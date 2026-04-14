@@ -142,26 +142,27 @@ python -c "from app.positions import load_positions; ps = load_positions(); prin
 
 ## Notion Sync
 
-The user tracks investments in a Notion database with columns:
-**Ticker**, **Buy Price**, **Shares/Quantity**, **Date**, **Notes**.
+The user tracks investments in a Notion database (DB ID:
+`835bb889-e405-4856-8344-f71bd2da3bad`) on a page called "Investments"
+inside "Money Matters". The database columns are: Investment (title with
+format "TICKER (Name)"), Price In, Number of Shares, Date Invested,
+Asset Type, Status, Amount Invested, Platform / Custodian, Notes.
 
-When the user says "sync my positions from Notion":
+**Automatic sync:** The pipeline automatically syncs positions from Notion
+every time the daily brief runs. No manual action is needed.
 
-1. Use the `notion` skill to query the user's investment database
-2. For each row, extract ticker, buy_price, shares, and date
-3. Write each entry to positions.json:
+**On-demand sync:** When the user says "sync my positions from Notion":
 
 ```bash
 cd "/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey/stockmonkey"
 source .venv/bin/activate
-python -c "from app.positions import add_position; add_position('TICKER', BUY_PRICE, SHARES, 'YYYY-MM-DD', 'notion')"
+python -c "from app.notion_sync import sync_from_notion; sync_from_notion()"
 ```
 
-Set the source to `"notion"` so synced entries are distinguishable from
-manual entries. Repeat for each row in the Notion database.
-
-The sync can also run automatically before the daily brief by adding it to
-the cron job message.
+Only rows with Status = "Active" and Asset Type containing "stock" are
+synced. The ticker is extracted from the Investment title (e.g. "RACE
+(Ferrari)" -> RACE). Synced entries have source = "notion" in
+positions.json.
 
 ## Dashboard Data
 

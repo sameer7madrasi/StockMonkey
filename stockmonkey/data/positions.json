@@ -1,18 +1,18 @@
 {
   "positions": [
     {
-      "ticker": "COST",
-      "buy_price": 950.0,
-      "shares": 2,
-      "buy_date": "2026-03-15",
-      "source": "manual"
+      "ticker": "RACE",
+      "buy_price": 351.85,
+      "shares": 2.0,
+      "buy_date": "2026-04-10",
+      "source": "notion"
     },
     {
-      "ticker": "AAPL",
-      "buy_price": 170.5,
-      "shares": 10,
-      "buy_date": "2026-01-10",
-      "source": "manual"
+      "ticker": "CL",
+      "buy_price": 83.82,
+      "shares": 7.0,
+      "buy_date": "2026-04-13",
+      "source": "notion"
     }
   ]
 }

@@ -6,8 +6,9 @@ Usage (invoked by OpenClaw agent or manually):
     python openclaw/skills/stock_daily_brief/run_stock_daily_brief.py
     python openclaw/skills/stock_daily_brief/run_stock_daily_brief.py AAPL NVDA TSLA
 
-Output goes to stdout (Markdown digest) and saved to data/digests/.
-The OpenClaw agent handles delivery to Telegram via its native channel.
+Prints the compact Telegram summary to stdout; full digest is saved under
+data/digests/. With STOCKMONKEY_AUTO_PUSH=1 in .env, dashboard files are
+git-committed and pushed after a successful run.
 """
 from __future__ import annotations
 

@@ -25,25 +25,66 @@ if str(_PROJECT_ROOT) not in sys.path:
 from app.run_watchlist import run_watchlist  # noqa: E402
 from app.watchlist import load_tickers       # noqa: E402
 from app.format_digest import format_digest_markdown  # noqa: E402
+from app.positions import load_positions     # noqa: E402
+from app.db.database import get_connection   # noqa: E402
 
 _DIGEST_DIR = _PROJECT_ROOT / "data" / "digests"
 _DASHBOARD_DATA = _PROJECT_ROOT / "docs" / "dashboard" / "data"
 _GHPAGES_DATA = _PROJECT_ROOT.parent / "docs" / "data"
 
 
+def _get_price_history(ticker: str, days: int = 30) -> list[dict]:
+    """Pull up to `days` daily closing prices from SQLite for sparkline charts."""
+    try:
+        conn = get_connection()
+        rows = conn.execute(
+            """
+            SELECT date(timestamp) AS dt, price
+            FROM snapshots
+            WHERE ticker = ? AND price != ''
+            GROUP BY date(timestamp)
+            ORDER BY dt DESC
+            LIMIT ?
+            """,
+            (ticker.upper(), days),
+        ).fetchall()
+        conn.close()
+        result = [{"date": r["dt"], "price": float(r["price"])} for r in rows]
+        result.reverse()
+        return result
+    except Exception:
+        return []
+
+
 def _build_dashboard_data(digest: dict) -> dict:
     """Extract a compact summary for the web dashboard."""
+    positions_list = load_positions()
+    pos_map = {p["ticker"].upper(): p for p in positions_list}
+
     stocks = []
     for r in digest.get("results", []):
         snap = r.get("snapshot") or {}
         llm = r.get("llm_summary") or {}
-        stocks.append({
-            "ticker": r.get("ticker", "???"),
+        ticker = r.get("ticker", "???")
+        entry: dict = {
+            "ticker": ticker,
             "price": snap.get("price"),
             "change": snap.get("change"),
             "percent_change": snap.get("percent_change"),
             "summary": llm.get("summary"),
-        })
+        }
+
+        if ticker.upper() in pos_map:
+            entry["position"] = pos_map[ticker.upper()]
+
+        history = _get_price_history(ticker)
+        if history:
+            entry["history"] = history
+
+        stocks.append(entry)
+
+    stocks.sort(key=lambda s: (0 if s.get("position") else 1, s["ticker"]))
+
     return {
         "generated_at": digest.get("generated_at"),
         "stocks": stocks,

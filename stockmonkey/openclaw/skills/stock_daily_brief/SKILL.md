@@ -43,6 +43,10 @@ programmatic analysis and an LLM-generated summary.
 - "add TICKER", "track TICKER", "start watching TICKER"
 - "remove TICKER", "stop watching TICKER", "drop TICKER"
 - "how is TICKER doing", "check TICKER"
+- "I bought X shares of TICKER at $PRICE"
+- "I sold TICKER", "remove my TICKER position"
+- "show my positions", "what am I invested in"
+- "sync my positions from Notion", "sync Notion"
 
 ## Project Location
 
@@ -97,6 +101,67 @@ cd "/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey/stockmonkey"
 source .venv/bin/activate
 python -c "from app.watchlist import remove_ticker; removed, tickers = remove_ticker('TICKER'); print(f'Removed: {removed}. Watchlist: {tickers}')"
 ```
+
+## Position Management
+
+Users can tell you about stocks they own. Handle these commands:
+
+### Record a Purchase
+
+When the user says something like "I bought 5 shares of AAPL at $180" or
+"yo I just bought COST at $950, 2 shares":
+
+```bash
+cd "/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey/stockmonkey"
+source .venv/bin/activate
+python -c "from app.positions import add_position; new, pos = add_position('TICKER', BUY_PRICE, SHARES, 'YYYY-MM-DD'); print(f'New: {new}. Positions: {pos}')"
+```
+
+Replace TICKER, BUY_PRICE, SHARES, and date with actual values. If shares
+are not mentioned, default to 1. If date is not mentioned, use today's date.
+
+### Record a Sale
+
+When the user says "I sold AAPL" or "remove my COST position":
+
+```bash
+cd "/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey/stockmonkey"
+source .venv/bin/activate
+python -c "from app.positions import remove_position; removed, pos = remove_position('TICKER'); print(f'Removed: {removed}. Positions: {pos}')"
+```
+
+### Show Positions
+
+When the user asks "show my positions" or "what am I invested in":
+
+```bash
+cd "/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey/stockmonkey"
+source .venv/bin/activate
+python -c "from app.positions import load_positions; ps = load_positions(); print('\n'.join(f\"{p['ticker']}: {p['shares']} shares @ \${p['buy_price']}\" for p in ps) if ps else 'No positions recorded.')"
+```
+
+## Notion Sync
+
+The user tracks investments in a Notion database with columns:
+**Ticker**, **Buy Price**, **Shares/Quantity**, **Date**, **Notes**.
+
+When the user says "sync my positions from Notion":
+
+1. Use the `notion` skill to query the user's investment database
+2. For each row, extract ticker, buy_price, shares, and date
+3. Write each entry to positions.json:
+
+```bash
+cd "/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey/stockmonkey"
+source .venv/bin/activate
+python -c "from app.positions import add_position; add_position('TICKER', BUY_PRICE, SHARES, 'YYYY-MM-DD', 'notion')"
+```
+
+Set the source to `"notion"` so synced entries are distinguishable from
+manual entries. Repeat for each row in the Notion database.
+
+The sync can also run automatically before the daily brief by adding it to
+the cron job message.
 
 ## Dashboard Data
 

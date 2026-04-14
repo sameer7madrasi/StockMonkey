@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>StockMonkey</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <style>
   :root {
     --bg: #0d1117;
@@ -17,6 +18,8 @@
     --red: #f85149;
     --red-bg: rgba(248,81,73,0.1);
     --accent: #58a6ff;
+    --gold: #d29922;
+    --gold-bg: rgba(210,153,34,0.1);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,12 +38,7 @@
     text-align: center;
   }
 
-  header h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
+  header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
   header h1 span { color: var(--accent); }
 
   .meta {
@@ -49,33 +47,62 @@
     margin-top: 0.4rem;
   }
 
-  .summary-bar {
+  /* ── ticker tape ─────────────────────────────────────────────── */
+  .ticker-tape {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 1.25rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 0;
+    cursor: pointer;
+  }
+
+  .ticker-strip {
     display: flex;
     gap: 0.75rem;
-    padding: 0 1.25rem;
-    margin-bottom: 1rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    width: max-content;
+    animation: tickerScroll 18s linear infinite;
   }
-  .summary-bar::-webkit-scrollbar { display: none; }
+  .ticker-tape:hover .ticker-strip { animation-play-state: paused; }
 
-  .summary-pill {
+  @keyframes tickerScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .ticker-pill {
     flex-shrink: 0;
     padding: 0.4rem 0.85rem;
     border-radius: 2rem;
     font-size: 0.75rem;
     font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    -webkit-tap-highlight-color: transparent;
   }
-  .summary-pill.up { background: var(--green-bg); color: var(--green); }
-  .summary-pill.down { background: var(--red-bg); color: var(--red); }
-  .summary-pill.flat { background: rgba(139,148,158,0.12); color: var(--text-muted); }
+  .ticker-pill:hover { opacity: 0.8; }
+  .ticker-pill.up { background: var(--green-bg); color: var(--green); }
+  .ticker-pill.down { background: var(--red-bg); color: var(--red); }
+  .ticker-pill.flat { background: rgba(139,148,158,0.12); color: var(--text-muted); }
 
+  /* ── section headings ────────────────────────────────────────── */
+  .section-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 0.75rem 1.25rem 0.5rem;
+  }
+
+  /* ── cards ────────────────────────────────────────────────────── */
   .cards {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     padding: 0 1rem;
+    margin-bottom: 1.25rem;
   }
 
   .card {
@@ -88,6 +115,7 @@
     -webkit-tap-highlight-color: transparent;
   }
   .card:active { background: var(--surface-hover); }
+  .card.position-card { border-left: 3px solid var(--gold); }
 
   .card-header {
     display: flex;
@@ -96,17 +124,22 @@
     padding: 1rem 1.25rem;
   }
 
-  .ticker-name {
-    font-size: 1.1rem;
+  .card-left { display: flex; align-items: center; gap: 0.5rem; }
+
+  .ticker-name { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; }
+
+  .position-badge {
+    font-size: 0.55rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    background: var(--gold-bg);
+    color: var(--gold);
   }
 
-  .card-right {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
+  .card-right { display: flex; align-items: center; gap: 0.6rem; }
 
   .pct {
     font-size: 0.95rem;
@@ -119,8 +152,7 @@
   .pct.flat { background: rgba(139,148,158,0.12); color: var(--text-muted); }
 
   .chevron {
-    width: 1rem;
-    height: 1rem;
+    width: 1rem; height: 1rem;
     transition: transform 0.25s ease;
     color: var(--text-muted);
   }
@@ -129,11 +161,11 @@
   .card-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.25s ease;
+    transition: max-height 0.4s ease, padding 0.25s ease;
     padding: 0 1.25rem;
   }
   .card.open .card-body {
-    max-height: 32rem;
+    max-height: 60rem;
     padding: 0 1.25rem 1.25rem;
   }
 
@@ -141,7 +173,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .detail-item {
@@ -151,7 +183,7 @@
   }
 
   .detail-label {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -159,13 +191,19 @@
     margin-bottom: 0.25rem;
   }
 
-  .detail-value {
-    font-size: 1.1rem;
-    font-weight: 700;
-  }
+  .detail-value { font-size: 1.05rem; font-weight: 700; }
   .detail-value.up { color: var(--green); }
   .detail-value.down { color: var(--red); }
   .detail-value.flat { color: var(--text-muted); }
+
+  .chart-container {
+    margin: 0.75rem 0;
+    background: var(--bg);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    height: 160px;
+    position: relative;
+  }
 
   .summary-text {
     font-size: 0.82rem;
@@ -174,6 +212,62 @@
     border-top: 1px solid var(--border);
     padding-top: 0.75rem;
   }
+
+  /* ── modal ───────────────────────────────────────────────────── */
+  .modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 100;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .modal-backdrop.visible { display: flex; }
+
+  .modal-sheet {
+    background: var(--surface);
+    border-radius: 1rem 1rem 0 0;
+    width: 100%;
+    max-width: 480px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 1.5rem 1.25rem 2rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  .modal-backdrop.visible .modal-sheet { transform: translateY(0); }
+
+  .modal-handle {
+    width: 2.5rem;
+    height: 0.25rem;
+    background: var(--border);
+    border-radius: 0.125rem;
+    margin: 0 auto 1rem;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .modal-ticker { font-size: 1.4rem; font-weight: 800; }
+
+  .modal-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .modal-chart { height: 180px; margin: 0.75rem 0; position: relative; }
 
   .error-state {
     text-align: center;
@@ -197,125 +291,341 @@
   <div class="meta" id="meta">Loading...</div>
 </header>
 
-<div class="summary-bar" id="summaryBar"></div>
-<div class="cards" id="cards">
-  <div class="loading">Loading stock data...</div>
+<div class="ticker-tape" id="tickerTape"></div>
+
+<div id="positionsSection"></div>
+<div id="watchlistSection"></div>
+
+<!-- modal -->
+<div class="modal-backdrop" id="modal">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <span class="modal-ticker" id="modalTicker"></span>
+      <button class="modal-close" id="modalClose">&times;</button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
 </div>
 
 <script>
 const DATA_URL = 'data/latest.json';
+let _allStocks = [];
+let _modalChart = null;
 
-function direction(pct) {
+function dir(pct) {
   if (pct > 0) return 'up';
   if (pct < 0) return 'down';
   return 'flat';
 }
-
-function arrow(dir) {
-  if (dir === 'up') return '▲';
-  if (dir === 'down') return '▼';
-  return '—';
-}
-
-function formatPct(pct) {
-  const sign = pct > 0 ? '+' : '';
-  return sign + pct.toFixed(2) + '%';
-}
-
-function formatPrice(p) {
-  return '$' + p.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
-
-function formatChange(c) {
-  const sign = c > 0 ? '+' : '';
-  return sign + c.toFixed(2);
-}
+function arrow(d) { return d === 'up' ? '▲' : d === 'down' ? '▼' : '—'; }
+function fmtPct(p) { return (p > 0 ? '+' : '') + p.toFixed(2) + '%'; }
+function fmtPrice(p) { return '$' + p.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+function fmtChange(c) { return (c > 0 ? '+' : '') + c.toFixed(2); }
+function fmtPL(v) { return (v >= 0 ? '+' : '') + '$' + Math.abs(v).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}); }
 
 function timeAgo(iso) {
-  const d = new Date(iso);
-  const now = new Date();
-  const mins = Math.floor((now - d) / 60000);
+  const mins = Math.floor((Date.now() - new Date(iso).getTime()) / 60000);
   if (mins < 1) return 'just now';
   if (mins < 60) return mins + 'm ago';
   const hrs = Math.floor(mins / 60);
   if (hrs < 24) return hrs + 'h ago';
-  const days = Math.floor(hrs / 24);
-  return days + 'd ago';
+  return Math.floor(hrs / 24) + 'd ago';
 }
 
-function renderCard(stock) {
-  const dir = direction(stock.percent_change);
+/* ── ticker tape ───────────────────────────────────────────── */
+function renderTape(stocks) {
+  const tape = document.getElementById('tickerTape');
+  const strip = document.createElement('div');
+  strip.className = 'ticker-strip';
+
+  const makePills = () => {
+    stocks.forEach(s => {
+      const d = dir(s.percent_change);
+      const pill = document.createElement('span');
+      pill.className = `ticker-pill ${d}`;
+      pill.textContent = `${s.ticker} ${arrow(d)} ${fmtPct(s.percent_change)}`;
+      pill.addEventListener('click', (e) => { e.stopPropagation(); openModal(s); });
+      strip.appendChild(pill);
+    });
+  };
+  makePills();
+  makePills();
+
+  tape.innerHTML = '';
+  tape.appendChild(strip);
+}
+
+/* ── modal ──────────────────────────────────────────────────── */
+function openModal(stock) {
+  const modal = document.getElementById('modal');
+  const d = dir(stock.percent_change);
+
+  document.getElementById('modalTicker').textContent = stock.ticker;
+
+  let html = `<div class="detail-grid">
+    <div class="detail-item"><div class="detail-label">Price</div><div class="detail-value">${fmtPrice(stock.price)}</div></div>
+    <div class="detail-item"><div class="detail-label">Change</div><div class="detail-value ${d}">${arrow(d)} ${fmtChange(stock.change)}</div></div>
+    <div class="detail-item"><div class="detail-label">% Change</div><div class="detail-value ${d}">${fmtPct(stock.percent_change)}</div></div>
+  </div>`;
+
+  if (stock.position) {
+    const pos = stock.position;
+    const pl = (stock.price - pos.buy_price) * pos.shares;
+    const plPct = ((stock.price - pos.buy_price) / pos.buy_price) * 100;
+    const plDir = dir(pl);
+    const mktVal = stock.price * pos.shares;
+    html += `<div class="detail-grid">
+      <div class="detail-item"><div class="detail-label">Shares</div><div class="detail-value">${pos.shares}</div></div>
+      <div class="detail-item"><div class="detail-label">Avg Cost</div><div class="detail-value">${fmtPrice(pos.buy_price)}</div></div>
+      <div class="detail-item"><div class="detail-label">Mkt Value</div><div class="detail-value">${fmtPrice(mktVal)}</div></div>
+    </div>
+    <div class="detail-grid" style="grid-template-columns:1fr 1fr">
+      <div class="detail-item"><div class="detail-label">P&L</div><div class="detail-value ${plDir}">${fmtPL(pl)}</div></div>
+      <div class="detail-item"><div class="detail-label">Return</div><div class="detail-value ${plDir}">${fmtPct(plPct)}</div></div>
+    </div>`;
+  }
+
+  if (stock.history && stock.history.length > 1) {
+    html += `<div class="modal-chart"><canvas id="modalChartCanvas"></canvas></div>`;
+  }
+
+  if (stock.summary) {
+    html += `<div class="summary-text">${stock.summary}</div>`;
+  }
+
+  document.getElementById('modalBody').innerHTML = html;
+  modal.classList.add('visible');
+
+  if (stock.history && stock.history.length > 1) {
+    renderModalChart(stock);
+  }
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('visible');
+  if (_modalChart) { _modalChart.destroy(); _modalChart = null; }
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+function renderModalChart(stock) {
+  if (_modalChart) { _modalChart.destroy(); _modalChart = null; }
+  const canvas = document.getElementById('modalChartCanvas');
+  if (!canvas) return;
+
+  const labels = stock.history.map(h => h.date);
+  const prices = stock.history.map(h => h.price);
+  const isUp = prices[prices.length - 1] >= prices[0];
+  const lineColor = isUp ? getComputedStyle(document.documentElement).getPropertyValue('--green').trim()
+                         : getComputedStyle(document.documentElement).getPropertyValue('--red').trim();
+
+  const datasets = [{
+    data: prices,
+    borderColor: lineColor,
+    backgroundColor: lineColor + '18',
+    fill: true,
+    tension: 0.3,
+    pointRadius: 0,
+    borderWidth: 2,
+  }];
+
+  if (stock.position) {
+    datasets.push({
+      data: Array(prices.length).fill(stock.position.buy_price),
+      borderColor: getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(),
+      borderDash: [6, 4],
+      borderWidth: 1.5,
+      pointRadius: 0,
+      fill: false,
+    });
+  }
+
+  _modalChart = new Chart(canvas, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: {
+        backgroundColor: '#161b22',
+        titleColor: '#e6edf3',
+        bodyColor: '#e6edf3',
+        borderColor: '#30363d',
+        borderWidth: 1,
+        callbacks: { label: ctx => fmtPrice(ctx.parsed.y) }
+      }},
+      scales: {
+        x: { display: true, ticks: { color: '#8b949e', font: { size: 9 }, maxTicksLimit: 6 }, grid: { display: false } },
+        y: { display: true, ticks: { color: '#8b949e', font: { size: 9 }, callback: v => '$' + v }, grid: { color: '#30363d22' } },
+      },
+      interaction: { intersect: false, mode: 'index' },
+    }
+  });
+}
+
+/* ── cards ──────────────────────────────────────────────────── */
+function renderCard(stock, isPosition) {
+  const d = dir(stock.percent_change);
   const card = document.createElement('div');
-  card.className = 'card';
+  card.className = 'card' + (isPosition ? ' position-card' : '');
+
+  let headerExtra = '';
+  if (isPosition) headerExtra = '<span class="position-badge">invested</span>';
+
+  let bodyHTML = `<div class="detail-grid">
+    <div class="detail-item"><div class="detail-label">Price</div><div class="detail-value">${fmtPrice(stock.price)}</div></div>
+    <div class="detail-item"><div class="detail-label">Change</div><div class="detail-value ${d}">${arrow(d)} ${fmtChange(stock.change)}</div></div>
+    <div class="detail-item"><div class="detail-label">% Change</div><div class="detail-value ${d}">${fmtPct(stock.percent_change)}</div></div>
+  </div>`;
+
+  if (isPosition && stock.position) {
+    const pos = stock.position;
+    const pl = (stock.price - pos.buy_price) * pos.shares;
+    const plPct = ((stock.price - pos.buy_price) / pos.buy_price) * 100;
+    const plDir = dir(pl);
+    bodyHTML += `<div class="detail-grid" style="grid-template-columns:1fr 1fr">
+      <div class="detail-item"><div class="detail-label">P&L</div><div class="detail-value ${plDir}">${fmtPL(pl)}</div></div>
+      <div class="detail-item"><div class="detail-label">Return</div><div class="detail-value ${plDir}">${fmtPct(plPct)}</div></div>
+    </div>`;
+  }
+
+  if (stock.history && stock.history.length > 1) {
+    const chartId = 'chart-' + stock.ticker;
+    bodyHTML += `<div class="chart-container"><canvas id="${chartId}"></canvas></div>`;
+  }
+
+  if (stock.summary) bodyHTML += `<div class="summary-text">${stock.summary}</div>`;
 
   card.innerHTML = `
     <div class="card-header">
-      <span class="ticker-name">${stock.ticker}</span>
+      <div class="card-left">
+        <span class="ticker-name">${stock.ticker}</span>
+        ${headerExtra}
+      </div>
       <div class="card-right">
-        <span class="pct ${dir}">${arrow(dir)} ${formatPct(stock.percent_change)}</span>
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
+        <span class="pct ${d}">${arrow(d)} ${fmtPct(stock.percent_change)}</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
       </div>
     </div>
-    <div class="card-body">
-      <div class="detail-grid">
-        <div class="detail-item">
-          <div class="detail-label">Price</div>
-          <div class="detail-value">${formatPrice(stock.price)}</div>
-        </div>
-        <div class="detail-item">
-          <div class="detail-label">Change</div>
-          <div class="detail-value ${dir}">${arrow(dir)} ${formatChange(stock.change)}</div>
-        </div>
-        <div class="detail-item">
-          <div class="detail-label">% Change</div>
-          <div class="detail-value ${dir}">${formatPct(stock.percent_change)}</div>
-        </div>
-      </div>
-      ${stock.summary ? `<div class="summary-text">${stock.summary}</div>` : ''}
-    </div>
-  `;
+    <div class="card-body">${bodyHTML}</div>`;
 
   card.querySelector('.card-header').addEventListener('click', () => {
+    const wasOpen = card.classList.contains('open');
     card.classList.toggle('open');
+    if (!wasOpen && stock.history && stock.history.length > 1) {
+      setTimeout(() => {
+        const chartId = 'chart-' + stock.ticker;
+        const canvas = document.getElementById(chartId);
+        if (canvas && !canvas._rendered) {
+          canvas._rendered = true;
+          renderInlineChart(canvas, stock);
+        }
+      }, 50);
+    }
   });
 
   return card;
 }
 
+function renderInlineChart(canvas, stock) {
+  const labels = stock.history.map(h => h.date);
+  const prices = stock.history.map(h => h.price);
+  const isUp = prices[prices.length - 1] >= prices[0];
+  const lineColor = isUp ? getComputedStyle(document.documentElement).getPropertyValue('--green').trim()
+                         : getComputedStyle(document.documentElement).getPropertyValue('--red').trim();
+
+  const datasets = [{
+    data: prices,
+    borderColor: lineColor,
+    backgroundColor: lineColor + '18',
+    fill: true,
+    tension: 0.3,
+    pointRadius: 0,
+    borderWidth: 2,
+  }];
+
+  if (stock.position) {
+    datasets.push({
+      data: Array(prices.length).fill(stock.position.buy_price),
+      borderColor: getComputedStyle(document.documentElement).getPropertyValue('--gold').trim(),
+      borderDash: [6, 4],
+      borderWidth: 1.5,
+      pointRadius: 0,
+      fill: false,
+    });
+  }
+
+  new Chart(canvas, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: {
+        backgroundColor: '#161b22', titleColor: '#e6edf3', bodyColor: '#e6edf3',
+        borderColor: '#30363d', borderWidth: 1,
+        callbacks: { label: ctx => fmtPrice(ctx.parsed.y) }
+      }},
+      scales: {
+        x: { display: true, ticks: { color: '#8b949e', font: { size: 8 }, maxTicksLimit: 5 }, grid: { display: false } },
+        y: { display: true, ticks: { color: '#8b949e', font: { size: 8 }, callback: v => '$' + v }, grid: { color: '#30363d22' } },
+      },
+      interaction: { intersect: false, mode: 'index' },
+    }
+  });
+}
+
+/* ── init ───────────────────────────────────────────────────── */
 async function init() {
-  const cardsEl = document.getElementById('cards');
   const metaEl = document.getElementById('meta');
-  const barEl = document.getElementById('summaryBar');
+  const posEl = document.getElementById('positionsSection');
+  const watchEl = document.getElementById('watchlistSection');
 
   try {
     const resp = await fetch(DATA_URL);
     if (!resp.ok) throw new Error('No data yet');
     const data = await resp.json();
 
-    metaEl.textContent = `Updated ${timeAgo(data.generated_at)} · ${data.stocks.length} stocks`;
+    _allStocks = data.stocks || [];
+    metaEl.textContent = `Updated ${timeAgo(data.generated_at)} · ${_allStocks.length} stocks`;
 
-    barEl.innerHTML = '';
-    data.stocks.forEach(s => {
-      const dir = direction(s.percent_change);
-      const pill = document.createElement('span');
-      pill.className = `summary-pill ${dir}`;
-      pill.textContent = `${s.ticker} ${arrow(dir)} ${formatPct(s.percent_change)}`;
-      barEl.appendChild(pill);
-    });
+    renderTape(_allStocks);
 
-    cardsEl.innerHTML = '';
-    data.stocks.forEach(s => {
-      cardsEl.appendChild(renderCard(s));
-    });
+    const positions = _allStocks.filter(s => s.position);
+    const watchlist = _allStocks.filter(s => !s.position);
+
+    posEl.innerHTML = '';
+    if (positions.length > 0) {
+      const title = document.createElement('div');
+      title.className = 'section-title';
+      title.textContent = 'Your Positions';
+      posEl.appendChild(title);
+      const cards = document.createElement('div');
+      cards.className = 'cards';
+      positions.forEach(s => cards.appendChild(renderCard(s, true)));
+      posEl.appendChild(cards);
+    }
+
+    watchEl.innerHTML = '';
+    const wTitle = document.createElement('div');
+    wTitle.className = 'section-title';
+    wTitle.textContent = positions.length > 0 ? 'Watchlist' : 'Stocks';
+    watchEl.appendChild(wTitle);
+    const wCards = document.createElement('div');
+    wCards.className = 'cards';
+    if (watchlist.length > 0) {
+      watchlist.forEach(s => wCards.appendChild(renderCard(s, false)));
+    } else if (positions.length > 0) {
+      wCards.innerHTML = '<div class="loading" style="padding:1.5rem">No additional watchlist stocks.</div>';
+    }
+    watchEl.appendChild(wCards);
+
   } catch (e) {
-    cardsEl.innerHTML = `
-      <div class="error-state">
-        <h2>No data available</h2>
-        <p>The daily brief hasn't run yet today. Check back after market open.</p>
-      </div>
-    `;
+    watchEl.innerHTML = `<div class="cards"><div class="error-state"><h2>No data available</h2><p>The daily brief hasn't run yet today. Check back after market open.</p></div></div>`;
     metaEl.textContent = 'Waiting for data...';
   }
 }

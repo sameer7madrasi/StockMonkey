@@ -164,17 +164,57 @@ synced. The ticker is extracted from the Investment title (e.g. "RACE
 (Ferrari)" -> RACE). Synced entries have source = "notion" in
 positions.json.
 
-## Dashboard Data
+## Dashboard Data & GitHub Pages
 
-The pipeline automatically writes `docs/dashboard/data/latest.json` which
-the web dashboard reads. After running the pipeline, commit and push the
-updated `latest.json` so the dashboard reflects the latest data:
+The pipeline writes dashboard JSON and Yahoo history files under
+`docs/data/` (GitHub Pages) and mirrors under `stockmonkey/docs/dashboard/data/`.
+It also copies `stockmonkey/docs/dashboard/index.html` to `docs/index.html`.
+
+### Auto-push (recommended)
+
+So Telegram and the live dashboard stay in sync, set in `stockmonkey/.env`:
+
+```
+STOCKMONKEY_AUTO_PUSH=1
+```
+
+Optional: `STOCKMONKEY_GIT_BRANCH=main` (default).
+
+After each successful run the script commits and pushes those paths if there
+are changes. Requires `git` on PATH, repo credentials (SSH or credential
+helper), and permission to push to `origin`.
+
+### Manual push
 
 ```bash
 cd "/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey"
-git add docs/data/latest.json stockmonkey/docs/dashboard/data/latest.json
+git add docs/data/latest.json docs/data/history docs/index.html \
+  stockmonkey/docs/dashboard/data/latest.json stockmonkey/docs/dashboard/data/history \
+  stockmonkey/docs/dashboard/index.html
 git commit -m "update dashboard data"
 git push origin main
+```
+
+## Cron reliability (OpenClaw)
+
+The scheduled job runs on the **same Mac** where the OpenClaw gateway is
+running. If the laptop is **off or asleep** at 7am, the job may not run or
+may **time out** waiting for the machine or network.
+
+- **Reduce timeouts / noise:** Prefer a longer `--timeout-seconds` on the
+  cron job (e.g. 1200). Use `--failure-alert-after 3` and
+  `--failure-alert-cooldown 8h` so Telegram is not spammed on transient
+  misses. Use `--no-failure-alert` if you only want logs
+  (`openclaw cron runs`) and no automatic error DMs.
+- **Catch up after login:** Install the optional LaunchAgent
+  `stockmonkey/scripts/ai.stockmonkey.catchup-on-login.plist` into
+  `~/Library/LaunchAgents/` and `launchctl load` it — it runs
+  `scripts/catchup_on_login.sh` once per login with `STOCKMONKEY_AUTO_PUSH=1`
+  so a missed morning run refreshes the dashboard when you open the machine.
+
+```bash
+cp "/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey/stockmonkey/scripts/ai.stockmonkey.catchup-on-login.plist" ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/ai.stockmonkey.catchup-on-login.plist
 ```
 
 ## Full Output Format
@@ -197,7 +237,8 @@ The full Markdown digest (saved to artifacts) contains these sections:
 
 - If one ticker fails, the rest continue processing
 - Partial results are always preserved rather than discarded
-- The script prints the full digest to stdout even if some tickers had errors
+- The script prints the compact Telegram message to stdout (and saves the full
+  digest under `data/digests/`) even if some tickers had errors
 
 ## Artifacts
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>ai.stockmonkey.catchup-on-login</string>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/tmp/stockmonkey-catchup.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/stockmonkey-catchup.err</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>STOCKMONKEY_AUTO_PUSH</key>
+    <string>1</string>
+    <key>PATH</key>
+    <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/sameerhassen/Desktop/TECH CAREER/Mil by 30/StockMonkey/stockmonkey/scripts/catchup_on_login.sh</string>
+  </array>
+</dict>
+</plist>

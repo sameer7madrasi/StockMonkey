@@ -12,7 +12,10 @@ The OpenClaw agent handles delivery to Telegram via its native channel.
 from __future__ import annotations
 
 import json
+import os
+import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -28,6 +31,13 @@ from app.format_digest import format_digest_markdown  # noqa: E402
 from app.positions import load_positions     # noqa: E402
 from app.notion_sync import sync_from_notion # noqa: E402
 from app.yahoo_history import fetch_history  # noqa: E402
+
+try:
+    from dotenv import load_dotenv  # noqa: E402
+
+    load_dotenv(_PROJECT_ROOT / ".env")
+except ImportError:
+    pass
 
 _DIGEST_DIR = _PROJECT_ROOT / "data" / "digests"
 _DASHBOARD_DATA = _PROJECT_ROOT / "docs" / "dashboard" / "data"
@@ -103,14 +113,102 @@ def _save_history_files(tickers: list[str]) -> None:
     local_dir.mkdir(parents=True, exist_ok=True)
     ghpages_dir.mkdir(parents=True, exist_ok=True)
 
-    for ticker in tickers:
+    def _one(ticker: str) -> tuple[str, dict | None]:
         try:
-            history = fetch_history(ticker)
-            payload = json.dumps(history)
-            (local_dir / f"{ticker.upper()}.json").write_text(payload, encoding="utf-8")
-            (ghpages_dir / f"{ticker.upper()}.json").write_text(payload, encoding="utf-8")
+            return ticker.upper(), fetch_history(ticker)
         except Exception:
-            pass
+            return ticker.upper(), None
+
+    workers = min(6, max(1, len(tickers)))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        futures = {pool.submit(_one, t): t for t in tickers}
+        for fut in as_completed(futures):
+            sym, history = fut.result()
+            if not history:
+                continue
+            payload = json.dumps(history)
+            (local_dir / f"{sym}.json").write_text(payload, encoding="utf-8")
+            (ghpages_dir / f"{sym}.json").write_text(payload, encoding="utf-8")
+
+
+def _sync_dashboard_html_to_pages() -> None:
+    """Keep repo-root docs/index.html in sync with the canonical dashboard HTML."""
+    src = _PROJECT_ROOT / "docs" / "dashboard" / "index.html"
+    dst = _GHPAGES_DATA.parent / "index.html"
+    if src.exists():
+        dst.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+
+
+def _auto_push_enabled() -> bool:
+    v = os.getenv("STOCKMONKEY_AUTO_PUSH", "").strip().lower()
+    return v in ("1", "true", "yes", "on")
+
+
+def _maybe_git_push_dashboard() -> None:
+    """If STOCKMONKEY_AUTO_PUSH is set, commit and push dashboard artifacts to origin."""
+    if not _auto_push_enabled():
+        return
+
+    repo = _PROJECT_ROOT.parent
+    branch = (os.getenv("STOCKMONKEY_GIT_BRANCH") or "main").strip() or "main"
+
+    paths = [
+        "docs/data/latest.json",
+        "docs/data/history",
+        "docs/index.html",
+        "stockmonkey/docs/dashboard/data/latest.json",
+        "stockmonkey/docs/dashboard/data/history",
+        "stockmonkey/docs/dashboard/index.html",
+    ]
+
+    try:
+        add = subprocess.run(
+            ["git", "-C", str(repo), "add", "--"] + paths,
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+        if add.returncode != 0:
+            print(f"[auto-push] git add failed: {add.stderr or add.stdout}", file=sys.stderr)
+            return
+
+        diff = subprocess.run(
+            ["git", "-C", str(repo), "diff", "--staged", "--quiet"],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        if diff.returncode == 0:
+            return
+
+        msg = (
+            "chore: refresh dashboard data "
+            + datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+        )
+        commit = subprocess.run(
+            ["git", "-C", str(repo), "commit", "-m", msg],
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
+        if commit.returncode != 0:
+            print(f"[auto-push] git commit failed: {commit.stderr or commit.stdout}", file=sys.stderr)
+            return
+
+        push = subprocess.run(
+            ["git", "-C", str(repo), "push", "origin", branch],
+            capture_output=True,
+            text=True,
+            timeout=120,
+        )
+        if push.returncode != 0:
+            print(f"[auto-push] git push failed: {push.stderr or push.stdout}", file=sys.stderr)
+        else:
+            print(f"[auto-push] pushed to origin/{branch}")
+    except subprocess.TimeoutExpired:
+        print("[auto-push] git operation timed out", file=sys.stderr)
+    except FileNotFoundError:
+        print("[auto-push] git not found on PATH", file=sys.stderr)
 
 
 def _save_artifacts(digest: dict, date_str: str) -> tuple[Path, Path]:
@@ -133,6 +231,8 @@ def _save_artifacts(digest: dict, date_str: str) -> tuple[Path, Path]:
 
     all_tickers = [r.get("ticker", "") for r in digest.get("results", []) if r.get("ticker")]
     _save_history_files(all_tickers)
+    _sync_dashboard_html_to_pages()
+    _maybe_git_push_dashboard()
 
     return json_path, md_path
 

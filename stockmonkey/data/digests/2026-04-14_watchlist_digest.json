@@ -1,0 +1,235 @@
+{
+  "watchlist": [
+    "COST",
+    "RACE",
+    "AAPL",
+    "CL"
+  ],
+  "generated_at": "2026-04-14T16:03:29.241911+00:00",
+  "results": [
+    {
+      "ticker": "COST",
+      "snapshot": {
+        "ticker": "COST",
+        "price": 972.2,
+        "change": -8.65,
+        "percent_change": -0.88,
+        "market_status": "As of 12:02:34 PM EDT. Market Open.",
+        "headlines": [
+          "4 Grandma-Approved Side Gigs Saving Boomer Budgets in 2026",
+          "Instacart acquires Instaleap to expand its enterprise platform internationally",
+          "Is Costco Stock a Buy Now After Strong March Retail Sales?",
+          "Butcher's Bone Broth Helps Health-Conscious Target Shoppers Access Fresh, Organic Nutrition",
+          "Investors Heavily Search Costco Wholesale Corporation (COST): Here is What You Need to Know"
+        ],
+        "timestamp": "2026-04-14T16:02:34.199574+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "COST was at 972.2, down 8.65 points or 0.88%, as of 12:02 PM EDT while the market was open. The headline list is mixed and only loosely related to Costco, with one item directly mentioning the company and another focused on Instacart, so the snapshot gives limited clarity on what is driving the move.",
+        "attention_note": "Watch for more directly relevant Costco news and whether the stock\u2019s intraday decline widens or stabilizes as trading continues.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "COST",
+        "price": 980.85,
+        "change": -17.62,
+        "percent_change": -1.76,
+        "market_status": "At close: 4:00:01 PM EDT",
+        "headlines": [
+          "Walmart vs. Costco: One Dividend Is Growing Twice as Fast as the Other",
+          "MTY Food Group Q1 Earnings Call Highlights",
+          "BJ's Membership Growth Hits Record: Is Loyalty the Key Driver?",
+          "Costco's International Sales Surge Signals Shift in Growth Mix",
+          "Walmart's AI Push Gains Steam: Will Sparky Boost Sales Growth?"
+        ],
+        "timestamp": "2026-04-13T20:30:30.630393+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-13T20:30:30.630393+00:00",
+        "price_delta": -8.65,
+        "price_direction": "down",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved down by $8.65 since the last snapshot. 5 new headline(s) detected."
+      }
+    },
+    {
+      "ticker": "RACE",
+      "snapshot": {
+        "ticker": "RACE",
+        "price": 358.96,
+        "change": 3.82,
+        "percent_change": 1.08,
+        "market_status": "As of 12:02:32 PM EDT. Market Open.",
+        "headlines": [
+          "Rolls-Royce targets 100 ultra-wealthy buyers with customised electric cars",
+          "Philip Morris International Joins Ferrari Hypersail as Principal Partner, Building on 50-Year Relationship",
+          "Iran Conflict Threatens Lucrative Luxury Stock -- Time to Panic, or Time to Buy?",
+          "Ferrari\u2019s 2026 F1 Power Unit Choices And What They Mean For Investors",
+          "FERRARI N.V.: COMPLETION OF THE FIRST TRANCHE AND ANNOUNCEMENT OF THE SECOND TRANCHE OF THE MULTI-YEAR SHARE REPURCHASE PROGRAM"
+        ],
+        "timestamp": "2026-04-14T16:02:45.515857+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "RACE was up 1.08% to 358.96 as of 12:02 PM EDT. The snapshot\u2019s headlines point to attention on Ferrari\u2019s share repurchase program, partnership news tied to Hypersail, and broader investor-focused coverage, but they do not clearly explain today\u2019s move.",
+        "attention_note": "Watch for any new company updates on the share repurchase program or partnerships, since the current headlines are mixed and not all appear directly tied to today\u2019s price action.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "RACE",
+        "price": 355.14,
+        "change": 3.25,
+        "percent_change": 0.92,
+        "market_status": "At close: 4:00:02 PM EDT",
+        "headlines": [
+          "Philip Morris International Joins Ferrari Hypersail as Principal Partner, Building on 50-Year Relationship",
+          "Iran Conflict Threatens Lucrative Luxury Stock -- Time to Panic, or Time to Buy?",
+          "Ferrari\u2019s 2026 F1 Power Unit Choices And What They Mean For Investors",
+          "FERRARI N.V.: COMPLETION OF THE FIRST TRANCHE AND ANNOUNCEMENT OF THE SECOND TRANCHE OF THE MULTI-YEAR SHARE REPURCHASE PROGRAM",
+          "Ferrari (RACE): Best Growth Stocks to Buy for the Next Decade"
+        ],
+        "timestamp": "2026-04-13T20:30:39.306499+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-13T20:30:39.306499+00:00",
+        "price_delta": 3.82,
+        "price_direction": "up",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved up by $3.82 since the last snapshot. 1 new headline(s) detected."
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "snapshot": {
+        "ticker": "AAPL",
+        "price": 257.77,
+        "change": -1.43,
+        "percent_change": -0.55,
+        "market_status": "As of 12:03:03 PM EDT. Market Open.",
+        "headlines": [
+          "Tech stocks today: Amazon to acquire satellite company Globalstar, OpenAI memo lashes out at rival Anthropic",
+          "Amazon stock leads 9-day Mag 7 performance, Tesla falls behind",
+          "Amazon Pays $11.57B for Globalstar to Challenge Starlink",
+          "Apple likely to beat Street estimates on continued strong sales of iPhone: BofA",
+          "Amazon Agrees To Buy Globalstar In $11.6 Billion Deal Amid Musk Space Battle"
+        ],
+        "timestamp": "2026-04-14T16:02:58.950561+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "AAPL was at 257.77, down 1.43 points or 0.55% as of 12:03 PM EDT with the market open. The headline set is mostly about Amazon and Globalstar, with only one Apple-specific item noting Apple may beat Street estimates on iPhone sales, so the snapshot gives limited direct context for Apple\u2019s move.",
+        "attention_note": "Watch for more Apple-specific headlines and whether the stock\u2019s intraday move changes meaningfully by the close, since the current news mix is sparse for AAPL.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "AAPL",
+        "price": 259.2,
+        "change": -1.28,
+        "percent_change": -0.49,
+        "market_status": "At close: 4:00:01 PM EDT",
+        "headlines": [
+          "Amazon stock leads 9-day Mag 7 performance, Tesla falls behind",
+          "Why Millions of Investors Are Buying the Wrong NASDAQ ETF",
+          "The More Artificial Intelligence (AI) Models That Come Out, the More I'm Convinced Apple Has the Right Strategy",
+          "Quantum computing is a once-in-a-lifetime opportunity for Canada. Here's how we can grow the industry at home",
+          "3 AI Stocks That Are Way Cheaper Than Apple Right Now"
+        ],
+        "timestamp": "2026-04-13T20:30:47.260033+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-13T20:30:47.260033+00:00",
+        "price_delta": -1.43,
+        "price_direction": "down",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved down by $1.43 since the last snapshot. 4 new headline(s) detected."
+      }
+    },
+    {
+      "ticker": "CL",
+      "snapshot": {
+        "ticker": "CL",
+        "price": 84.35,
+        "change": 0.37,
+        "percent_change": 0.44,
+        "market_status": "As of 12:03:18 PM EDT. Market Open.",
+        "headlines": [
+          "Griffin warns of global recession if Hormuz Strait stays closed",
+          "Procter & Gamble's Beauty Strength vs. Baby Care Weakness: What's Next?",
+          "Fed\u2019s Goolsbee says rate cuts may be delayed until 2027 amid oil prices",
+          "Bessent says Fed should wait on rate cuts amid oil spike",
+          "Stocks rally despite Hormuz risks as Barclays weighs durability of gains"
+        ],
+        "timestamp": "2026-04-14T16:03:08.881428+00:00",
+        "errors": []
+      },
+      "llm_summary": {
+        "summary": "CL was up 0.44% to $84.35 as of 12:03 PM EDT. The snapshot\u2019s headlines are mostly broad market and macro items, with one peer-related consumer staples headline rather than clear company-specific news for CL.",
+        "attention_note": "Watch for any CL-specific updates later in the day, since this snapshot does not show a clear company-linked driver for the move.",
+        "confidence": "medium"
+      },
+      "previous_snapshot": {
+        "ticker": "CL",
+        "price": 83.98,
+        "change": -0.36,
+        "percent_change": -0.43,
+        "market_status": "At close: 4:00:02 PM EDT",
+        "headlines": [
+          "Oil markets price fragile peace as options signal lingering conflict risk",
+          "How global fiscal policy is reacting to the recent energy shock",
+          "South Korea nears Kazakhstan oil deal as Middle East supply risks mount",
+          "Japan targets Asian oil alliance as supply bottlenecks persist",
+          "Why are Japanese equities so resilient despite the Middle East war?"
+        ],
+        "timestamp": "2026-04-13T20:30:57.657799+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-13T20:30:57.657799+00:00",
+        "price_delta": 0.37,
+        "price_direction": "up",
+        "headline_count_change": 0,
+        "new_headlines_detected": true,
+        "comparison_note": "Price moved up by $0.37 since the last snapshot. 5 new headline(s) detected."
+      }
+    }
+  ],
+  "digest_summary": {
+    "overall_summary": "Midday snapshot: RACE is up 1.08% to 358.96 and CL is up 0.44% to 84.35. COST is down 0.88% to 972.20 and AAPL is down 0.55% to 257.77. Since the last snapshot, COST fell $8.65, AAPL fell $1.43, RACE rose $3.82, and CL rose $0.37. Each name shows 5 headlines, with 1 to 5 new headlines detected. Data quality looks mixed but usable, with medium confidence across all four stocks.",
+    "top_movers": [
+      {
+        "ticker": "RACE",
+        "percent_change": 1.08,
+        "price": 358.96
+      },
+      {
+        "ticker": "COST",
+        "percent_change": -0.88,
+        "price": 972.2
+      },
+      {
+        "ticker": "AAPL",
+        "percent_change": -0.55,
+        "price": 257.77
+      }
+    ],
+    "tickers_with_new_headlines": [
+      "COST",
+      "RACE",
+      "AAPL",
+      "CL"
+    ],
+    "tickers_needing_attention": [
+      "COST",
+      "RACE",
+      "AAPL",
+      "CL"
+    ]
+  }
+}

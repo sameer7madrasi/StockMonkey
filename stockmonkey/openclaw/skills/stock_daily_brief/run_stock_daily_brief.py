@@ -26,35 +26,12 @@ from app.run_watchlist import run_watchlist  # noqa: E402
 from app.watchlist import load_tickers       # noqa: E402
 from app.format_digest import format_digest_markdown  # noqa: E402
 from app.positions import load_positions     # noqa: E402
-from app.db.database import get_connection   # noqa: E402
 from app.notion_sync import sync_from_notion # noqa: E402
+from app.yahoo_history import fetch_history  # noqa: E402
 
 _DIGEST_DIR = _PROJECT_ROOT / "data" / "digests"
 _DASHBOARD_DATA = _PROJECT_ROOT / "docs" / "dashboard" / "data"
 _GHPAGES_DATA = _PROJECT_ROOT.parent / "docs" / "data"
-
-
-def _get_price_history(ticker: str, days: int = 30) -> list[dict]:
-    """Pull up to `days` daily closing prices from SQLite for sparkline charts."""
-    try:
-        conn = get_connection()
-        rows = conn.execute(
-            """
-            SELECT date(timestamp) AS dt, price
-            FROM snapshots
-            WHERE ticker = ? AND price != ''
-            GROUP BY date(timestamp)
-            ORDER BY dt DESC
-            LIMIT ?
-            """,
-            (ticker.upper(), days),
-        ).fetchall()
-        conn.close()
-        result = [{"date": r["dt"], "price": float(r["price"])} for r in rows]
-        result.reverse()
-        return result
-    except Exception:
-        return []
 
 
 def _sync_positions_quietly() -> None:
@@ -86,10 +63,6 @@ def _build_dashboard_data(digest: dict) -> dict:
 
         if ticker.upper() in pos_map:
             entry["position"] = pos_map[ticker.upper()]
-
-        history = _get_price_history(ticker)
-        if history:
-            entry["history"] = history
 
         stocks.append(entry)
 
@@ -123,8 +96,25 @@ def _build_compact_message(digest: dict) -> str:
     return "\n".join(lines)
 
 
+def _save_history_files(tickers: list[str]) -> None:
+    """Fetch Yahoo Finance chart data for each ticker and write per-ticker history JSON."""
+    local_dir = _DASHBOARD_DATA / "history"
+    ghpages_dir = _GHPAGES_DATA / "history"
+    local_dir.mkdir(parents=True, exist_ok=True)
+    ghpages_dir.mkdir(parents=True, exist_ok=True)
+
+    for ticker in tickers:
+        try:
+            history = fetch_history(ticker)
+            payload = json.dumps(history)
+            (local_dir / f"{ticker.upper()}.json").write_text(payload, encoding="utf-8")
+            (ghpages_dir / f"{ticker.upper()}.json").write_text(payload, encoding="utf-8")
+        except Exception:
+            pass
+
+
 def _save_artifacts(digest: dict, date_str: str) -> tuple[Path, Path]:
-    """Write JSON, Markdown, and dashboard artifacts. Returns (json_path, md_path)."""
+    """Write JSON, Markdown, dashboard, and history artifacts. Returns (json_path, md_path)."""
     _DIGEST_DIR.mkdir(parents=True, exist_ok=True)
 
     json_path = _DIGEST_DIR / f"{date_str}_watchlist_digest.json"
@@ -140,6 +130,9 @@ def _save_artifacts(digest: dict, date_str: str) -> tuple[Path, Path]:
 
     _GHPAGES_DATA.mkdir(parents=True, exist_ok=True)
     (_GHPAGES_DATA / "latest.json").write_text(dashboard_json, encoding="utf-8")
+
+    all_tickers = [r.get("ticker", "") for r in digest.get("results", []) if r.get("ticker")]
+    _save_history_files(all_tickers)
 
     return json_path, md_path
 

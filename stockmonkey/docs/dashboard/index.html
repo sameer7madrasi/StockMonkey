@@ -186,6 +186,15 @@
   .error-state { text-align: center; padding: 4rem 2rem; color: var(--text-muted); }
   .error-state h2 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); }
   .loading { text-align: center; padding: 4rem 2rem; color: var(--text-muted); font-size: 0.9rem; }
+
+  .chart-empty {
+    text-align: center; color: var(--text-muted); font-size: 0.78rem;
+    line-height: 1.45; padding: 1rem 0.5rem;
+  }
+  .chart-holding-note {
+    font-size: 0.65rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--gold); margin-bottom: 0.4rem;
+  }
 </style>
 </head>
 <body>
@@ -245,6 +254,78 @@ async function loadHistory(ticker) {
     _historyCache[ticker] = data;
     return data;
   } catch { return null; }
+}
+
+function dateKeyFromPoint(dateStr) {
+  if (!dateStr) return '';
+  return String(dateStr).split(' ')[0].slice(0, 10);
+}
+
+function filterPointsSinceBuy(points, buyDate) {
+  if (!buyDate || !points || !points.length) return [];
+  const buy = String(buyDate).trim().slice(0, 10);
+  return points.filter(p => dateKeyFromPoint(p.date) >= buy);
+}
+
+function fmtBuyDateLabel(iso) {
+  const d = new Date(iso.trim().slice(0, 10) + 'T12:00:00Z');
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+/** First time range that has >=2 data points on/after buy date. */
+function firstRangeWithInvestmentData(stock, history) {
+  if (!stock.position?.buy_date || !history) return DEFAULT_RANGE;
+  for (const r of RANGES) {
+    const raw = history[r] || [];
+    if (filterPointsSinceBuy(raw, stock.position.buy_date).length >= 2) return r;
+  }
+  return DEFAULT_RANGE;
+}
+
+/**
+ * Price view: full Yahoo range. Investment view: only since buy_date (your holding period).
+ */
+function prepareChartSeries(stock, history, range, viewMode) {
+  const raw = history ? (history[range] || []) : [];
+  const wantInvestment = viewMode === 'investment' && stock.position;
+
+  if (!wantInvestment) {
+    if (raw.length < 2) {
+      return { points: [], emptyHtml: '<div class="chart-empty">No data for this range.</div>' };
+    }
+    return { points: raw, emptyHtml: null, holdingNote: null };
+  }
+
+  const buy = stock.position.buy_date;
+  if (!buy) {
+    return {
+      points: [],
+      emptyHtml: '<div class="chart-empty">Add a purchase date (e.g. in Notion) to chart your holding period.</div>',
+    };
+  }
+
+  const filtered = filterPointsSinceBuy(raw, buy);
+  if (filtered.length < 2) {
+    const pretty = fmtBuyDateLabel(buy);
+    return {
+      points: [],
+      emptyHtml: `<div class="chart-empty">You haven't held this long enough to show <strong>${range}</strong> since you bought on <strong>${pretty}</strong>. Try <strong>1D</strong>, <strong>5D</strong>, or <strong>1M</strong>, or pick a range that includes more time after your purchase.</div>`,
+    };
+  }
+
+  return {
+    points: filtered,
+    emptyHtml: null,
+    holdingNote: 'Since purchase · ' + fmtBuyDateLabel(buy),
+  };
+}
+
+function setActiveRange(rangeBarEl, activeRange) {
+  if (!rangeBarEl) return;
+  rangeBarEl.querySelectorAll('.range-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent === activeRange);
+  });
 }
 
 function buildViewToggle(activeView, onSelect) {
@@ -408,15 +489,30 @@ async function openModal(stock) {
   document.getElementById('modalBody').innerHTML = html;
   modal.classList.add('visible');
 
-  let modalRange = DEFAULT_RANGE;
+  const history = await loadHistory(stock.ticker);
   let modalView = hasPos ? 'investment' : 'price';
+  let modalRange = hasPos ? firstRangeWithInvestmentData(stock, history || {}) : DEFAULT_RANGE;
+
   const redraw = () => renderModalChart(stock, modalRange, modalView);
 
   const controls = document.getElementById('modalControls');
+  let rangeBarEl = null;
+
   if (hasPos) {
-    controls.appendChild(buildViewToggle(modalView, (v) => { modalView = v; redraw(); }));
+    controls.appendChild(buildViewToggle(modalView, (v) => {
+      modalView = v;
+      if (v === 'investment') {
+        modalRange = firstRangeWithInvestmentData(stock, _historyCache[stock.ticker] || {});
+        setActiveRange(rangeBarEl, modalRange);
+      }
+      redraw();
+    }));
   }
-  controls.appendChild(buildRangeBar(modalRange, (r) => { modalRange = r; redraw(); }));
+  rangeBarEl = buildRangeBar(modalRange, (r) => {
+    modalRange = r;
+    redraw();
+  });
+  controls.appendChild(rangeBarEl);
   await redraw();
 }
 
@@ -426,14 +522,18 @@ async function renderModalChart(stock, range, viewMode) {
   area.innerHTML = '<div class="chart-loading">Loading...</div>';
 
   const history = await loadHistory(stock.ticker);
-  const points = history ? (history[range] || []) : [];
+  const { points, emptyHtml, holdingNote } = prepareChartSeries(stock, history, range, viewMode);
 
-  if (points.length < 2) {
-    area.innerHTML = '<div class="chart-loading">No data for this range</div>';
+  if (emptyHtml) {
+    area.innerHTML = emptyHtml;
     return;
   }
 
-  area.innerHTML = '<canvas id="modalCanvas"></canvas>';
+  let inner = '';
+  if (holdingNote) inner += `<div class="chart-holding-note">${holdingNote}</div>`;
+  inner += '<canvas id="modalCanvas"></canvas>';
+  area.innerHTML = inner;
+
   const canvas = document.getElementById('modalCanvas');
   _modalChart = buildChart(canvas, points, stock, viewMode);
 }
@@ -496,16 +596,32 @@ function renderCard(stock, isPosition) {
     card.classList.toggle('open');
     if (!wasOpen && !loaded) {
       loaded = true;
-      let cardRange = DEFAULT_RANGE;
-      let cardView = hasPos ? 'investment' : 'price';
-      const redraw = () => renderInlineChart(stock, chartId, cardRange, cardView);
-
       const controlsEl = card.querySelector('#' + controlsId);
-      if (hasPos) {
-        controlsEl.appendChild(buildViewToggle(cardView, (v) => { cardView = v; redraw(); }));
-      }
-      controlsEl.appendChild(buildRangeBar(cardRange, (r) => { cardRange = r; redraw(); }));
-      redraw();
+
+      loadHistory(stock.ticker).then((hist) => {
+        let cardView = hasPos ? 'investment' : 'price';
+        let cardRange = hasPos ? firstRangeWithInvestmentData(stock, hist || {}) : DEFAULT_RANGE;
+        let rangeBarEl = null;
+
+        const redraw = () => renderInlineChart(stock, chartId, cardRange, cardView);
+
+        if (hasPos) {
+          controlsEl.appendChild(buildViewToggle(cardView, (v) => {
+            cardView = v;
+            if (v === 'investment') {
+              cardRange = firstRangeWithInvestmentData(stock, _historyCache[stock.ticker] || {});
+              setActiveRange(rangeBarEl, cardRange);
+            }
+            redraw();
+          }));
+        }
+        rangeBarEl = buildRangeBar(cardRange, (r) => {
+          cardRange = r;
+          redraw();
+        });
+        controlsEl.appendChild(rangeBarEl);
+        redraw();
+      });
     }
   });
 
@@ -520,15 +636,19 @@ async function renderInlineChart(stock, chartId, range, viewMode) {
   area.innerHTML = '<div class="chart-loading">Loading...</div>';
 
   const history = await loadHistory(stock.ticker);
-  const points = history ? (history[range] || []) : [];
+  const { points, emptyHtml, holdingNote } = prepareChartSeries(stock, history, range, viewMode);
 
-  if (points.length < 2) {
-    area.innerHTML = '<div class="chart-loading">No data for this range</div>';
+  if (emptyHtml) {
+    area.innerHTML = emptyHtml;
     return;
   }
 
   const canvasId = chartId + '-canvas';
-  area.innerHTML = `<canvas id="${canvasId}"></canvas>`;
+  let inner = '';
+  if (holdingNote) inner += `<div class="chart-holding-note">${holdingNote}</div>`;
+  inner += `<canvas id="${canvasId}"></canvas>`;
+  area.innerHTML = inner;
+
   const canvas = document.getElementById(canvasId);
   _inlineCharts[chartId] = buildChart(canvas, points, stock, viewMode);
 }

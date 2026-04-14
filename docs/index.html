@@ -114,6 +114,21 @@
   .detail-value.down { color: var(--red); }
   .detail-value.flat { color: var(--text-muted); }
 
+  /* ── view toggle (Price / Investment) ─────────────────────────── */
+  .view-toggle {
+    display: flex; gap: 0.25rem; margin-bottom: 0.5rem;
+    background: var(--bg); border-radius: 0.4rem; padding: 0.15rem;
+    width: fit-content;
+  }
+  .view-btn {
+    padding: 0.3rem 0.7rem; border-radius: 0.3rem; border: none;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em;
+    background: transparent; color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s; -webkit-tap-highlight-color: transparent;
+  }
+  .view-btn:hover { color: var(--text); }
+  .view-btn.active { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+
   /* ── range toggle ────────────────────────────────────────────── */
   .range-bar {
     display: flex; gap: 0.25rem; margin-bottom: 0.5rem;
@@ -232,6 +247,25 @@ async function loadHistory(ticker) {
   } catch { return null; }
 }
 
+function buildViewToggle(activeView, onSelect) {
+  const wrap = document.createElement('div');
+  wrap.className = 'view-toggle';
+  ['Price', 'Investment'].forEach(label => {
+    const key = label.toLowerCase();
+    const btn = document.createElement('button');
+    btn.className = 'view-btn' + (key === activeView ? ' active' : '');
+    btn.textContent = label;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      wrap.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      onSelect(key);
+    });
+    wrap.appendChild(btn);
+  });
+  return wrap;
+}
+
 function buildRangeBar(activeRange, onSelect) {
   const bar = document.createElement('div');
   bar.className = 'range-bar';
@@ -250,11 +284,15 @@ function buildRangeBar(activeRange, onSelect) {
   return bar;
 }
 
-function buildChart(canvas, points, stock, hasPos) {
-  const shares = hasPos ? stock.position.shares : 1;
-  const costBasis = hasPos ? stock.position.buy_price * shares : 0;
+// viewMode: 'price' (stock price) or 'investment' (position value with cost basis)
+function buildChart(canvas, points, stock, viewMode) {
+  const hasPos = !!stock.position;
+  const isInvestment = viewMode === 'investment' && hasPos;
+  const shares = isInvestment ? stock.position.shares : 1;
+  const costBasis = isInvestment ? stock.position.buy_price * shares : 0;
+
   const labels = points.map(h => h.date);
-  const values = points.map(h => hasPos ? h.price * shares : h.price);
+  const values = points.map(h => h.price * shares);
 
   if (values.length < 2) return null;
 
@@ -263,19 +301,28 @@ function buildChart(canvas, points, stock, hasPos) {
   const lineColor = isUp ? root.getPropertyValue('--green').trim() : root.getPropertyValue('--red').trim();
 
   const datasets = [{
-    label: hasPos ? 'Position Value' : 'Price',
+    label: isInvestment ? 'Position Value' : 'Price',
     data: values, borderColor: lineColor, backgroundColor: lineColor + '18',
     fill: true, tension: 0.3, pointRadius: 0, borderWidth: 2,
   }];
 
-  if (hasPos) {
+  if (isInvestment) {
     datasets.push({
       label: 'Amount Invested',
       data: Array(values.length).fill(costBasis),
       borderColor: root.getPropertyValue('--gold').trim(),
       borderDash: [6, 4], borderWidth: 1.5, pointRadius: 0, fill: false,
     });
+  } else if (hasPos) {
+    datasets.push({
+      label: 'Buy Price',
+      data: Array(values.length).fill(stock.position.buy_price),
+      borderColor: root.getPropertyValue('--gold').trim(),
+      borderDash: [6, 4], borderWidth: 1.5, pointRadius: 0, fill: false,
+    });
   }
+
+  const showLegend = hasPos;
 
   return new Chart(canvas, {
     type: 'line',
@@ -284,7 +331,7 @@ function buildChart(canvas, points, stock, hasPos) {
       responsive: true, maintainAspectRatio: false,
       animation: { duration: 300 },
       plugins: {
-        legend: { display: hasPos, labels: { color: '#8b949e', boxWidth: 12, font: { size: 9 } } },
+        legend: { display: showLegend, labels: { color: '#8b949e', boxWidth: 12, font: { size: 9 } } },
         tooltip: {
           backgroundColor: '#161b22', titleColor: '#e6edf3', bodyColor: '#e6edf3',
           borderColor: '#30363d', borderWidth: 1,
@@ -351,7 +398,7 @@ async function openModal(stock) {
     </div>`;
   }
 
-  html += `<div id="modalRangeBar"></div>
+  html += `<div id="modalControls"></div>
     <div class="chart-wrap"><div class="chart-area" id="modalChartArea">
       <div class="chart-loading">Loading chart...</div>
     </div></div>`;
@@ -361,12 +408,19 @@ async function openModal(stock) {
   document.getElementById('modalBody').innerHTML = html;
   modal.classList.add('visible');
 
-  const rangeBar = buildRangeBar(DEFAULT_RANGE, (range) => renderModalRange(stock, range));
-  document.getElementById('modalRangeBar').appendChild(rangeBar);
-  await renderModalRange(stock, DEFAULT_RANGE);
+  let modalRange = DEFAULT_RANGE;
+  let modalView = hasPos ? 'investment' : 'price';
+  const redraw = () => renderModalChart(stock, modalRange, modalView);
+
+  const controls = document.getElementById('modalControls');
+  if (hasPos) {
+    controls.appendChild(buildViewToggle(modalView, (v) => { modalView = v; redraw(); }));
+  }
+  controls.appendChild(buildRangeBar(modalRange, (r) => { modalRange = r; redraw(); }));
+  await redraw();
 }
 
-async function renderModalRange(stock, range) {
+async function renderModalChart(stock, range, viewMode) {
   if (_modalChart) { _modalChart.destroy(); _modalChart = null; }
   const area = document.getElementById('modalChartArea');
   area.innerHTML = '<div class="chart-loading">Loading...</div>';
@@ -381,7 +435,7 @@ async function renderModalRange(stock, range) {
 
   area.innerHTML = '<canvas id="modalCanvas"></canvas>';
   const canvas = document.getElementById('modalCanvas');
-  _modalChart = buildChart(canvas, points, stock, !!stock.position);
+  _modalChart = buildChart(canvas, points, stock, viewMode);
 }
 
 function closeModal() {
@@ -418,8 +472,8 @@ function renderCard(stock, isPosition) {
   }
 
   const chartId = 'chartWrap-' + stock.ticker;
-  const rangeId = 'rangeBar-' + stock.ticker;
-  bodyHTML += `<div id="${rangeId}"></div>
+  const controlsId = 'controls-' + stock.ticker;
+  bodyHTML += `<div id="${controlsId}"></div>
     <div class="chart-wrap"><div class="chart-area" id="${chartId}">
       <div class="chart-loading">Loading chart...</div>
     </div></div>`;
@@ -442,17 +496,23 @@ function renderCard(stock, isPosition) {
     card.classList.toggle('open');
     if (!wasOpen && !loaded) {
       loaded = true;
-      const rangeBarEl = card.querySelector('#' + rangeId);
-      const bar = buildRangeBar(DEFAULT_RANGE, (range) => renderInlineRange(stock, chartId, range, hasPos));
-      rangeBarEl.appendChild(bar);
-      renderInlineRange(stock, chartId, DEFAULT_RANGE, hasPos);
+      let cardRange = DEFAULT_RANGE;
+      let cardView = hasPos ? 'investment' : 'price';
+      const redraw = () => renderInlineChart(stock, chartId, cardRange, cardView);
+
+      const controlsEl = card.querySelector('#' + controlsId);
+      if (hasPos) {
+        controlsEl.appendChild(buildViewToggle(cardView, (v) => { cardView = v; redraw(); }));
+      }
+      controlsEl.appendChild(buildRangeBar(cardRange, (r) => { cardRange = r; redraw(); }));
+      redraw();
     }
   });
 
   return card;
 }
 
-async function renderInlineRange(stock, chartId, range, hasPos) {
+async function renderInlineChart(stock, chartId, range, viewMode) {
   const area = document.getElementById(chartId);
   if (!area) return;
 
@@ -470,7 +530,7 @@ async function renderInlineRange(stock, chartId, range, hasPos) {
   const canvasId = chartId + '-canvas';
   area.innerHTML = `<canvas id="${canvasId}"></canvas>`;
   const canvas = document.getElementById(canvasId);
-  _inlineCharts[chartId] = buildChart(canvas, points, stock, hasPos);
+  _inlineCharts[chartId] = buildChart(canvas, points, stock, viewMode);
 }
 
 /* ── init ───────────────────────────────────────────────────── */

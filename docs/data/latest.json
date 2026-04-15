@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-04-14T21:42:53.192394+00:00",
+  "generated_at": "2026-04-15T14:28:24.877663+00:00",
   "stocks": [
     {
       "ticker": "CL",
-      "price": 84.16,
-      "change": 0.18,
-      "percent_change": 0.21,
-      "summary": "CL closed at $84.16, up 0.18 points or 0.21% on the day. The headline list is mostly broad macro and consumer-products context rather than CL-specific updates, so the snapshot suggests a modest move without a clear company-specific driver in the provided data.",
+      "price": null,
+      "change": null,
+      "percent_change": null,
+      "summary": "The snapshot for CL is incomplete: price, daily change, market status, and headlines are all missing because the data extraction timed out. With no usable market data in this update, there is not enough information to describe what the stock did.",
       "position": {
         "ticker": "CL",
         "buy_price": 83.82,
@@ -17,10 +17,10 @@
     },
     {
       "ticker": "RACE",
-      "price": 358.13,
-      "change": 2.99,
-      "percent_change": 0.84,
-      "summary": "RACE closed at $358.13, up 2.99 points or 0.84% on the day. The headline mix centers on Ferrari-related brand and partnership news, Formula 1 discussion, and an update on its multi-year share repurchase program, but the snapshot does not show which item mattered most for today\u2019s move.",
+      "price": null,
+      "change": null,
+      "percent_change": null,
+      "summary": "The snapshot for RACE is incomplete: price, daily change, market status, and headlines are all missing because the data extraction timed out. There is not enough information here to describe today\u2019s trading activity.",
       "position": {
         "ticker": "RACE",
         "buy_price": 351.85,
@@ -31,17 +31,17 @@
     },
     {
       "ticker": "AAPL",
-      "price": 258.83,
-      "change": -0.37,
-      "percent_change": -0.14,
-      "summary": "AAPL finished the session at $258.83, down 0.37 points or 0.14%, indicating little net movement on the day. The headline list appears mixed and only loosely related to Apple, so there is limited company-specific context in this snapshot."
+      "price": null,
+      "change": null,
+      "percent_change": null,
+      "summary": "The snapshot for AAPL is incomplete: price, daily change, market status, and headlines are all unavailable because the data extraction timed out. There is not enough reliable information here to describe what happened in the stock today."
     },
     {
       "ticker": "COST",
-      "price": 974.8,
-      "change": -6.05,
-      "percent_change": -0.62,
-      "summary": "COST closed at 974.8, down 6.05 points or 0.62% by the end of the session. The snapshot includes a Costco-related headline about a shift in shopper spending behavior, while several other headlines are broader market or retail items and do not clearly explain the move."
+      "price": null,
+      "change": null,
+      "percent_change": null,
+      "summary": "The snapshot for COST is incomplete: price, daily change, market status, and headlines are all unavailable due to a data extraction timeout. There is not enough reliable information here to describe what happened in the stock today."
     }
   ]
 }

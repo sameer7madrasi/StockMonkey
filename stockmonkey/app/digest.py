@@ -7,10 +7,11 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
+from app.llm.model_config import summary_model
+
 load_dotenv()
 
 _client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-_MODEL = os.getenv("OPENCLAW_MODEL", "gpt-5.4")
 
 _LARGE_MOVE_THRESHOLD = 2.0  # percent
 
@@ -109,7 +110,7 @@ def _generate_overall_summary(results: list[dict]) -> str:
 
     try:
         response = _client.responses.create(
-            model=_MODEL,
+            model=summary_model(),
             instructions=_DIGEST_INSTRUCTIONS,
             input=json.dumps(condensed, indent=2),
         )

@@ -57,6 +57,22 @@ VENV=$PROJECT_ROOT/.venv
 
 All commands must be run from `$PROJECT_ROOT` with the venv activated.
 
+## OpenAI model and cost
+
+The pipeline calls the OpenAI **Responses API** once per watchlist ticker plus
+once for the digest summary. By default it uses **`STOCKMONKEY_OPENAI_MODEL`**
+if set, otherwise **`OPENCLAW_MODEL`** (legacy), otherwise **`gpt-4o-mini`**
+so daily cron is cheap and decoupled from a flagship OpenClaw chat model.
+
+Add to `stockmonkey/.env`:
+
+```
+STOCKMONKEY_OPENAI_MODEL=gpt-4o-mini
+```
+
+You can still set `OPENCLAW_MODEL` for the gateway agent only; the stock
+brief uses `STOCKMONKEY_OPENAI_MODEL` when present.
+
 ## Commands
 
 ### Run a Full Stock Brief

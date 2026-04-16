@@ -7,11 +7,11 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
+from app.llm.model_config import summary_model
+
 load_dotenv()
 
 _client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-_MODEL = os.getenv("OPENCLAW_MODEL", "gpt-5.4")
 
 SYSTEM_INSTRUCTIONS = """\
 You are a concise stock-watchlist summarizer for retail investors.
@@ -53,7 +53,7 @@ def summarize_snapshot(snapshot_dict: dict) -> dict:
 
     try:
         response = _client.responses.create(
-            model=_MODEL,
+            model=summary_model(),
             instructions=SYSTEM_INSTRUCTIONS,
             input=user_content,
         )

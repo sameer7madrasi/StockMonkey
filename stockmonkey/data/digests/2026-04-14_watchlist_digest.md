@@ -2,25 +2,23 @@
 
 ## Overall Summary
 
-Midday snapshot: RACE is up 1.08% to 358.96 and CL is up 0.44% to 84.35. COST is down 0.88% to 972.20 and AAPL is down 0.55% to 257.77. Since the last snapshot, COST fell $8.65, AAPL fell $1.43, RACE rose $3.82, and CL rose $0.37. Each name shows 5 headlines, with 1 to 5 new headlines detected. Data quality looks mixed but usable, with medium confidence across all four stocks.
+At the close, moves were modest and mixed. COST finished at $974.80, down 0.62%, though it was up $2.60 from the last snapshot and had 2 new headlines. RACE closed at $358.13, up 0.84%, but slipped $0.83 versus the last snapshot. AAPL ended at $258.83, down 0.14%, while rising $1.06 from the last snapshot with 4 new headlines. CL closed at $84.16, up 0.21%, but was down $0.19 from the last snapshot with 2 new headlines. Overall, headline volume was similar across names, and confidence is medium.
 
 ## Top Movers
 
-- **RACE**: 1.08% ($358.96)
-- **COST**: -0.88% ($972.2)
-- **AAPL**: -0.55% ($257.77)
+- **RACE**: 0.84% ($358.13)
+- **COST**: -0.62% ($974.8)
+- **CL**: 0.21% ($84.16)
 
 ## Tickers With New Headlines
 
 - COST
-- RACE
 - AAPL
 - CL
 
 ## Tickers Needing Attention
 
 - COST
-- RACE
 - AAPL
 - CL
 
@@ -30,51 +28,51 @@ Midday snapshot: RACE is up 1.08% to 358.96 and CL is up 0.44% to 84.35. COST is
 
 ### COST
 
-**Price:** $972.2  |  **Change:** -8.65 (-0.88%)  |  As of 12:02:34 PM EDT. Market Open.
+**Price:** $974.8  |  **Change:** -6.05 (-0.62%)  |  At close: 4:00:01 PM EDT
 
-**Summary:** COST was at 972.2, down 8.65 points or 0.88%, as of 12:02 PM EDT while the market was open. The headline list is mixed and only loosely related to Costco, with one item directly mentioning the company and another focused on Instacart, so the snapshot gives limited clarity on what is driving the move.
+**Summary:** COST closed at 974.8, down 6.05 points or 0.62% by the end of the session. The snapshot includes a Costco-related headline about a shift in shopper spending behavior, while several other headlines are broader market or retail items and do not clearly explain the move.
 
-**Watch:** Watch for more directly relevant Costco news and whether the stock’s intraday decline widens or stabilizes as trading continues.
+**Watch:** Watch for more direct Costco-specific updates on consumer spending trends and any follow-through in the next trading session.
 
 **Confidence:** medium
 
-**vs. Previous:** Price moved down by $8.65 since the last snapshot. 5 new headline(s) detected.
+**vs. Previous:** Price moved up by $2.60 since the last snapshot. 2 new headline(s) detected.
 
 ### RACE
 
-**Price:** $358.96  |  **Change:** 3.82 (1.08%)  |  As of 12:02:32 PM EDT. Market Open.
+**Price:** $358.13  |  **Change:** 2.99 (0.84%)  |  At close: 4:00:02 PM EDT
 
-**Summary:** RACE was up 1.08% to 358.96 as of 12:02 PM EDT. The snapshot’s headlines point to attention on Ferrari’s share repurchase program, partnership news tied to Hypersail, and broader investor-focused coverage, but they do not clearly explain today’s move.
+**Summary:** RACE closed at $358.13, up 2.99 points or 0.84% on the day. The headline mix centers on Ferrari-related brand and partnership news, Formula 1 discussion, and an update on its multi-year share repurchase program, but the snapshot does not show which item mattered most for today’s move.
 
-**Watch:** Watch for any new company updates on the share repurchase program or partnerships, since the current headlines are mixed and not all appear directly tied to today’s price action.
+**Watch:** Watch for any follow-through tied to the share repurchase update and whether new company-specific announcements add clearer direction beyond the mixed headline set.
 
 **Confidence:** medium
 
-**vs. Previous:** Price moved up by $3.82 since the last snapshot. 1 new headline(s) detected.
+**vs. Previous:** Price moved down by $0.83 since the last snapshot.
 
 ### AAPL
 
-**Price:** $257.77  |  **Change:** -1.43 (-0.55%)  |  As of 12:03:03 PM EDT. Market Open.
+**Price:** $258.83  |  **Change:** -0.37 (-0.14%)  |  At close: 4:00:01 PM EDT
 
-**Summary:** AAPL was at 257.77, down 1.43 points or 0.55% as of 12:03 PM EDT with the market open. The headline set is mostly about Amazon and Globalstar, with only one Apple-specific item noting Apple may beat Street estimates on iPhone sales, so the snapshot gives limited direct context for Apple’s move.
+**Summary:** AAPL finished the session at $258.83, down 0.37 points or 0.14%, indicating little net movement on the day. The headline list appears mixed and only loosely related to Apple, so there is limited company-specific context in this snapshot.
 
-**Watch:** Watch for more Apple-specific headlines and whether the stock’s intraday move changes meaningfully by the close, since the current news mix is sparse for AAPL.
+**Watch:** Watch for more directly Apple-related news or filings, since the current headlines do not clearly explain the stock's small move.
 
 **Confidence:** medium
 
-**vs. Previous:** Price moved down by $1.43 since the last snapshot. 4 new headline(s) detected.
+**vs. Previous:** Price moved up by $1.06 since the last snapshot. 4 new headline(s) detected.
 
 ### CL
 
-**Price:** $84.35  |  **Change:** 0.37 (0.44%)  |  As of 12:03:18 PM EDT. Market Open.
+**Price:** $84.16  |  **Change:** 0.18 (0.21%)  |  At close: 4:00:02 PM EDT
 
-**Summary:** CL was up 0.44% to $84.35 as of 12:03 PM EDT. The snapshot’s headlines are mostly broad market and macro items, with one peer-related consumer staples headline rather than clear company-specific news for CL.
+**Summary:** CL closed at $84.16, up 0.18 points or 0.21% on the day. The headline list is mostly broad macro and consumer-products context rather than CL-specific updates, so the snapshot suggests a modest move without a clear company-specific driver in the provided data.
 
-**Watch:** Watch for any CL-specific updates later in the day, since this snapshot does not show a clear company-linked driver for the move.
+**Watch:** Watch for any CL-specific news or earnings-related updates, since the current headlines are mostly general and add uncertainty around what moved the stock.
 
 **Confidence:** medium
 
-**vs. Previous:** Price moved up by $0.37 since the last snapshot. 5 new headline(s) detected.
+**vs. Previous:** Price moved down by $0.19 since the last snapshot. 2 new headline(s) detected.
 
 ---
-*Generated at 2026-04-14T16:03:29.241911+00:00*
+*Generated at 2026-04-14T21:42:53.192394+00:00*

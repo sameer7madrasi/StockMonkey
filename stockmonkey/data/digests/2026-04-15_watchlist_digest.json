@@ -1,0 +1,198 @@
+{
+  "watchlist": [
+    "COST",
+    "RACE",
+    "AAPL",
+    "CL"
+  ],
+  "generated_at": "2026-04-15T14:28:24.877663+00:00",
+  "results": [
+    {
+      "ticker": "COST",
+      "snapshot": {
+        "ticker": "COST",
+        "price": null,
+        "change": null,
+        "percent_change": null,
+        "market_status": null,
+        "headlines": [],
+        "timestamp": "2026-04-15T14:02:25.606410+00:00",
+        "errors": [
+          "extraction failed: Page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://finance.yahoo.com/quote/COST/\", waiting until \"domcontentloaded\"\n"
+        ]
+      },
+      "llm_summary": {
+        "summary": "The snapshot for COST is incomplete: price, daily change, market status, and headlines are all unavailable due to a data extraction timeout. There is not enough reliable information here to describe what happened in the stock today.",
+        "attention_note": "Watch for a refreshed snapshot with live price data, market status, and any recent headlines before drawing conclusions.",
+        "confidence": "low"
+      },
+      "previous_snapshot": {
+        "ticker": "COST",
+        "price": 974.8,
+        "change": -6.05,
+        "percent_change": -0.62,
+        "market_status": "At close: 4:00:01 PM EDT",
+        "headlines": [
+          "Jim Cramer on Salesforce: \u201cThis Is Going to Be a Hard Own\u201d",
+          "Costco reveals shift in shopper spending behavior",
+          "4 Grandma-Approved Side Gigs Saving Boomer Budgets in 2026",
+          "Instacart acquires Instaleap to expand its enterprise platform internationally",
+          "Is Costco Stock a Buy Now After Strong March Retail Sales?"
+        ],
+        "timestamp": "2026-04-14T21:42:12.215257+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-14T21:42:12.215257+00:00",
+        "price_delta": null,
+        "price_direction": "unknown",
+        "headline_count_change": -5,
+        "new_headlines_detected": false,
+        "comparison_note": "Price comparison unavailable due to missing data."
+      }
+    },
+    {
+      "ticker": "RACE",
+      "snapshot": {
+        "ticker": "RACE",
+        "price": null,
+        "change": null,
+        "percent_change": null,
+        "market_status": null,
+        "headlines": [],
+        "timestamp": "2026-04-15T14:12:31.291112+00:00",
+        "errors": [
+          "extraction failed: Page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://finance.yahoo.com/quote/RACE/\", waiting until \"domcontentloaded\"\n"
+        ]
+      },
+      "llm_summary": {
+        "summary": "The snapshot for RACE is incomplete: price, daily change, market status, and headlines are all missing because the data extraction timed out. There is not enough information here to describe today\u2019s trading activity.",
+        "attention_note": "Watch for a refreshed snapshot with live price data and any new headlines before drawing conclusions.",
+        "confidence": "low"
+      },
+      "previous_snapshot": {
+        "ticker": "RACE",
+        "price": 358.13,
+        "change": 2.99,
+        "percent_change": 0.84,
+        "market_status": "At close: 4:00:02 PM EDT",
+        "headlines": [
+          "Rolls-Royce targets 100 ultra-wealthy buyers with customised electric cars",
+          "Philip Morris International Joins Ferrari Hypersail as Principal Partner, Building on 50-Year Relationship",
+          "Iran Conflict Threatens Lucrative Luxury Stock -- Time to Panic, or Time to Buy?",
+          "Ferrari\u2019s 2026 F1 Power Unit Choices And What They Mean For Investors",
+          "FERRARI N.V.: COMPLETION OF THE FIRST TRANCHE AND ANNOUNCEMENT OF THE SECOND TRANCHE OF THE MULTI-YEAR SHARE REPURCHASE PROGRAM"
+        ],
+        "timestamp": "2026-04-14T21:42:23.008610+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-14T21:42:23.008610+00:00",
+        "price_delta": null,
+        "price_direction": "unknown",
+        "headline_count_change": -5,
+        "new_headlines_detected": false,
+        "comparison_note": "Price comparison unavailable due to missing data."
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "snapshot": {
+        "ticker": "AAPL",
+        "price": null,
+        "change": null,
+        "percent_change": null,
+        "market_status": null,
+        "headlines": [],
+        "timestamp": "2026-04-15T14:12:49.306575+00:00",
+        "errors": [
+          "extraction failed: Page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://finance.yahoo.com/quote/AAPL/\", waiting until \"domcontentloaded\"\n"
+        ]
+      },
+      "llm_summary": {
+        "summary": "The snapshot for AAPL is incomplete: price, daily change, market status, and headlines are all unavailable because the data extraction timed out. There is not enough reliable information here to describe what happened in the stock today.",
+        "attention_note": "Watch for a refreshed snapshot with working price data and headlines before drawing conclusions from this watchlist entry.",
+        "confidence": "low"
+      },
+      "previous_snapshot": {
+        "ticker": "AAPL",
+        "price": 258.83,
+        "change": -0.37,
+        "percent_change": -0.14,
+        "market_status": "At close: 4:00:01 PM EDT",
+        "headlines": [
+          "How Starkey is staying ahead of the AI hearing-aid wave",
+          "Liberty All-Star\u00ae Growth Fund, Inc. March 2026 Monthly Update",
+          "Nike shares rise 2% as Apple\u2019s Tim Cook and CEO Elliott Hill increase stakes",
+          "Amazon Buys Globalstar for $11.6 Billion to Take On Starlink",
+          "Amazon Agrees To Buy Globalstar In $11.6 Billion Deal Amid Musk Space Battle"
+        ],
+        "timestamp": "2026-04-14T21:42:31.952117+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-14T21:42:31.952117+00:00",
+        "price_delta": null,
+        "price_direction": "unknown",
+        "headline_count_change": -5,
+        "new_headlines_detected": false,
+        "comparison_note": "Price comparison unavailable due to missing data."
+      }
+    },
+    {
+      "ticker": "CL",
+      "snapshot": {
+        "ticker": "CL",
+        "price": null,
+        "change": null,
+        "percent_change": null,
+        "market_status": null,
+        "headlines": [],
+        "timestamp": "2026-04-15T14:13:09.703486+00:00",
+        "errors": [
+          "extraction failed: Page.goto: Timeout 15000ms exceeded.\nCall log:\n  - navigating to \"https://finance.yahoo.com/quote/CL/\", waiting until \"domcontentloaded\"\n"
+        ]
+      },
+      "llm_summary": {
+        "summary": "The snapshot for CL is incomplete: price, daily change, market status, and headlines are all missing because the data extraction timed out. With no usable market data in this update, there is not enough information to describe what the stock did.",
+        "attention_note": "Watch for a refreshed snapshot with working price data and headlines before drawing any conclusions from this watchlist entry.",
+        "confidence": "low"
+      },
+      "previous_snapshot": {
+        "ticker": "CL",
+        "price": 84.16,
+        "change": 0.18,
+        "percent_change": 0.21,
+        "market_status": "At close: 4:00:02 PM EDT",
+        "headlines": [
+          "Einhorn prioritizes capital preservation, warns of downside risks",
+          "IMF cuts global growth outlook on Iran war energy disruptions",
+          "Griffin warns of global recession if Hormuz Strait stays closed",
+          "Procter & Gamble's Beauty Strength vs. Baby Care Weakness: What's Next?",
+          "Fed\u2019s Goolsbee says rate cuts may be delayed until 2027 amid oil prices"
+        ],
+        "timestamp": "2026-04-14T21:42:41.780166+00:00",
+        "errors": []
+      },
+      "comparison": {
+        "previous_timestamp": "2026-04-14T21:42:41.780166+00:00",
+        "price_delta": null,
+        "price_direction": "unknown",
+        "headline_count_change": -5,
+        "new_headlines_detected": false,
+        "comparison_note": "Price comparison unavailable due to missing data."
+      }
+    }
+  ],
+  "digest_summary": {
+    "overall_summary": "Watchlist update: COST, RACE, AAPL, and CL all have missing price, percent change, and market status data. No headlines were provided for any of the four stocks, and confidence is low across the board. Price comparisons are unavailable for all names due to missing data. Overall, this is a sparse and low-quality update, so there is no reliable movement summary today.",
+    "top_movers": [],
+    "tickers_with_new_headlines": [],
+    "tickers_needing_attention": [
+      "COST",
+      "RACE",
+      "AAPL",
+      "CL"
+    ]
+  }
+}
